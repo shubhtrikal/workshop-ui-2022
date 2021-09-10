@@ -1,9 +1,10 @@
 import React from 'react';
+import LandingPage from '../components/LandingPage/LandingPage';
 
 const Home: React.FC = () => {
   return (
     <div>
-      <h1>Workshop</h1>
+      <LandingPage />
     </div>
   );
 };

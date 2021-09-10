@@ -7,7 +7,7 @@ import Document, {
   Main,
   NextScript,
 } from 'next/document';
-import { AppType } from 'next/dist/next-server/lib/utils';
+// import { AppType } from 'next/dist/next-server/lib/utils';
 import { ServerStyleSheets } from '@material-ui/core/styles';
 
 class MyDocument extends Document {
@@ -20,7 +20,7 @@ class MyDocument extends Document {
     ctx.renderPage = () =>
       originalRenderPage({
         // useful for wrapping the whole react tree
-        enhanceApp: (App: AppType) => (props) => {
+        enhanceApp: (App: any) => (props) => {
           return sheets.collect(<App {...props} />);
         },
       });
