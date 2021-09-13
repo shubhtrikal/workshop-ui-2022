@@ -1,11 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Playfair+Display:wght@400;500;600;700;800&display=swap');
+@font-face {
+  font-family: 'Obveron';
+  src: url('./assets/font/ObveronFont.ttf') format('truetype');
+}
 
-.landing {
+/* LANDING SECTION */
+
+.landing-section {
   font-family: 'Nunito', sans-serif;
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  background-image: linear-gradient(-120deg, #6e6118 0%, #45044b 100%);
+  /* background-image: linear-gradient(-120deg, #6e6118 0%, #45044b 100%); */
+  background-color: #1a7a78;
   z-index: 1;
   display: flex;
   align-items: center;
@@ -13,7 +19,11 @@
   text-align: center;
 }
 
-.bg {
+.landing-bg {
+  background-image: url('./assets/images/logoEdited.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   position: absolute;
   top: 0;
   left: 0;
@@ -23,45 +33,39 @@
   opacity: 0.2;
 }
 
-.content {
+.landing-content {
   position: relative;
 }
 
-.content h6 {
-  font-size: 20px;
+.landing-content h6 {
+  font-size: 24px;
   font-weight: 500;
   color: #fcb747;
   margin-bottom: 18px;
 }
 
-.content h2 {
-  font-family: 'Playfair Display', serif;
+.landing-content h2 {
+  font-family: 'Obveron', serif;
   font-size: 80px;
   line-height: 94px;
-  font-weight: 700;
+  font-weight: 300;
   color: #fff;
   margin-top: 30px;
   margin-bottom: 45px;
 }
 
-.content h2 span {
-  font-weight: 300;
+.landing-content h2 span {
+  color: #fc2c57;
 }
 
 .btn {
   font-size: 16px;
   padding: 11px 51px;
   border-radius: 45px;
-  background: #fd475d;
-  border: 2px solid #fd475d;
+  background: #fcb747;
+  border: 2px solid #fcb747;
   color: #fff;
   text-decoration: none;
-}
-
-.btn i {
-  margin-right: 8px;
-  font-size: 26px;
-  vertical-align: middle;
 }
 
 .btn:hover {

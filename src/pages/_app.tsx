@@ -2,6 +2,7 @@ import React from 'react';
 import { CssBaseline, LinearProgress } from '@material-ui/core';
 import { useRouter, Router } from 'next/router';
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import '../styles.css';
 
 const useStyles = makeStyles((theme: Theme) => ({
   linearLoading: {
