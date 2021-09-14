@@ -198,3 +198,16 @@
 .workshop-info .btn {
   padding: 7px 37px;
 }
+
+
+.faq-section{
+  font-family: 'Nunito', sans-serif;
+  background-color: white;
+}
+
+.questions{
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 28px;
+  color: #2c2c51;
+}
