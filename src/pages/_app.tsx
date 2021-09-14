@@ -1,12 +1,12 @@
-import React from 'react';
-import { CssBaseline, LinearProgress } from '@material-ui/core';
-import { useRouter, Router } from 'next/router';
-import { makeStyles, Theme } from '@material-ui/core/styles';
-import '../styles.css';
+import React from "react";
+import { CssBaseline, LinearProgress } from "@material-ui/core";
+import { useRouter, Router } from "next/router";
+import { makeStyles, Theme } from "@material-ui/core/styles";
+import "../styles.css";
 
 const useStyles = makeStyles((theme: Theme) => ({
   linearLoading: {
-    position: 'fixed',
+    position: "fixed",
     top: 0,
     left: 0,
     right: 0,
@@ -20,16 +20,14 @@ const useStyles = makeStyles((theme: Theme) => ({
 }));
 
 export type Details = {
-  orderId: string;
-  dataStructure: boolean | null;
-  dataScience: boolean | null;
+  orderId: string | null;
   workshopA: boolean | null;
   workshopB: boolean | null;
   name: string | null;
   college: string | null;
   email: string | null;
   phone: string | null;
-  success: boolean;
+  success: boolean | null;
   discountPercentage: string | null;
   amount: string | null;
   discountValue: string | null;
@@ -44,16 +42,16 @@ const MyApp = ({
 }) => {
   const router = useRouter();
   const classes = useStyles();
-  const paths = router.route.split('/');
+  const paths = router.route.split("/");
 
   /* Page loading animation */
   const [routeChange, setRouteChange] = React.useState<boolean>(false);
   const [details, setDetails] = React.useState<Details>(null);
-  Router.events.on('routeChangeStart', () => {
+  Router.events.on("routeChangeStart", () => {
     setRouteChange(true);
   });
-  Router.events.on('routeChangeComplete', () => setRouteChange(false));
-  Router.events.on('routeChangeError', () => setRouteChange(false));
+  Router.events.on("routeChangeComplete", () => setRouteChange(false));
+  Router.events.on("routeChangeError", () => setRouteChange(false));
   const [loading, setLoading] = React.useState<boolean>(false);
 
   const payment = (a: Details) => setDetails(a);
@@ -65,7 +63,7 @@ const MyApp = ({
       <CssBaseline />
 
       {routeChange && (
-        <LinearProgress color='secondary' className={classes.linearLoading} />
+        <LinearProgress color="secondary" className={classes.linearLoading} />
       )}
 
       <Component payment={payment} details={details} {...pageProps} />

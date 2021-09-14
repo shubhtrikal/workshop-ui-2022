@@ -1,6 +1,7 @@
 import { Grid, Paper, TextField } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
 import React from "react";
+import { Details } from "../../pages/_app";
 const useStyles = makeStyles({
   root: {
     margin: "auto",
@@ -27,20 +28,14 @@ const useStyles = makeStyles({
   },
 });
 
-interface details {
-  name: string;
-  email: string;
-  phone: string;
-  college: string;
+interface formprops {
+  userDetails: Details;
+  updateDetails: (details: any) => void;
+  handleNext: () => void;
 }
-const Registerform = () => {
+const Registerform = (props: formprops) => {
   const classes = useStyles();
-  const [values, setValues] = React.useState<details>({
-    name: "",
-    email: "",
-    phone: "",
-    college: "",
-  });
+  const values = props.userDetails;
 
   return (
     <>
@@ -54,8 +49,8 @@ const Registerform = () => {
             name="name"
             type="text"
             value={values.name}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setValues({ ...values, name: e.target.value });
+            onChange={(event) => {
+              props.updateDetails({ ...values, name: event.target.value });
             }}
           />
           <TextField
@@ -66,8 +61,8 @@ const Registerform = () => {
             name="email"
             type="email"
             value={values.email}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setValues({ ...values, email: e.target.value });
+            onChange={(event) => {
+              props.updateDetails({ ...values, email: event.target.value });
             }}
           />
           <TextField
@@ -78,8 +73,8 @@ const Registerform = () => {
             name="phone"
             type="text"
             value={values.phone}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setValues({ ...values, phone: e.target.value });
+            onChange={(event) => {
+              props.updateDetails({ ...values, phone: event.target.value });
             }}
           />
           <TextField
@@ -90,8 +85,8 @@ const Registerform = () => {
             name="college"
             type="text"
             value={values.college}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setValues({ ...values, college: e.target.value });
+            onChange={(event) => {
+              props.updateDetails({ ...values, college: event.target.value });
             }}
           />
         </Paper>

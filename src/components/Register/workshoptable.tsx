@@ -7,7 +7,8 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import { Checkbox, Typography } from "@material-ui/core";
+import { Checkbox, TableFooter, Typography } from "@material-ui/core";
+import { Details } from "../../pages/_app";
 
 const useStyles = makeStyles({
   table: {
@@ -15,27 +16,18 @@ const useStyles = makeStyles({
   },
 });
 
-function createData(
-  name: string,
-  calories: number,
-  fat: number,
-  carbs: number,
-  protein: number
-) {
-  return { name, calories, fat, carbs, protein };
+interface formprops {
+  userDetails: Details;
+  updateDetails: (details: any) => void;
+  handleNext: () => void;
+  handleBack: () => void;
 }
-
-const rows = [
-  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
-  createData("Eclair", 262, 16.0, 24, 6.0),
-  createData("Cupcake", 305, 3.7, 67, 4.3),
-  createData("Gingerbread", 356, 16.0, 49, 3.9),
-];
-
-export default function WorkshopTable() {
+export default function WorkshopTable(props: formprops) {
   const classes = useStyles();
+  const values = props.userDetails;
 
+  const [workshopA, setWorkshopA] = React.useState(values.workshopA);
+  const [workshopB, setWorkshopB] = React.useState(values.workshopB);
   return (
     <TableContainer component={Paper}>
       <Typography>
@@ -67,7 +59,17 @@ export default function WorkshopTable() {
             <TableCell align="center">200</TableCell>
             <TableCell align="center">Rs 500</TableCell>
             <TableCell align="center">
-              <Checkbox />
+              <Checkbox
+                checked={values.workshopA}
+                onChange={(e) => {
+                  setWorkshopA(!workshopA);
+                  props.updateDetails({
+                    ...values,
+                    workshopA: workshopA,
+                  });
+                  console.log(workshopA);
+                }}
+              />
             </TableCell>
           </TableRow>
           <TableRow>
@@ -83,10 +85,20 @@ export default function WorkshopTable() {
             <TableCell align="center">200</TableCell>
             <TableCell align="center">Rs 500</TableCell>
             <TableCell align="center">
-              <Checkbox />
+              <Checkbox
+                checked={values.workshopB}
+                onChange={(e) => {
+                  setWorkshopB(!workshopB);
+                  props.updateDetails({
+                    ...values,
+                    workshopB: workshopB,
+                  });
+                }}
+              />
             </TableCell>
           </TableRow>
         </TableBody>
+        <TableFooter></TableFooter>
       </Table>
     </TableContainer>
   );

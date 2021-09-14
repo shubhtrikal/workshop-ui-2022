@@ -14,10 +14,8 @@ import AddShoppingCartIcon from "@material-ui/icons/AddShoppingCart";
 import PaymentIcon from "@material-ui/icons/Payment";
 import StepConnector from "@material-ui/core/StepConnector";
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
 import { StepIconProps } from "@material-ui/core/StepIcon";
-import Registerform from "./registerform";
-import WorkshopTable from "./workshoptable";
+import { Details } from "../../pages/_app";
 
 const ColorlibConnector = withStyles({
   alternativeLabel: {
@@ -107,36 +105,13 @@ function getSteps() {
   return ["Personal Details", "Choose Workshop", "Complete Payment"];
 }
 
-function getStepContent(step: number) {
-  switch (step) {
-    case 0:
-      return <Registerform />;
-    case 1:
-      return <WorkshopTable />;
-    case 2:
-      return "Payment";
-    default:
-      return "Unknown step";
-  }
+interface stepperProps {
+  activeStep: number;
 }
-
-export default function CustomizedSteppers() {
+export default function CustomizedSteppers(props: stepperProps) {
   const classes = useStyles();
-  const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
-
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
+  const activeStep = props.activeStep;
   return (
     <div className={classes.root}>
       <Stepper
@@ -150,41 +125,6 @@ export default function CustomizedSteppers() {
           </Step>
         ))}
       </Stepper>
-      <div>
-        {activeStep === steps.length ? (
-          <div>
-            <Typography className={classes.instructions}>
-              All steps completed - you&apos;re finished
-            </Typography>
-            <Button onClick={handleReset} className={classes.button}>
-              Reset
-            </Button>
-          </div>
-        ) : (
-          <div>
-            <Typography className={classes.instructions}>
-              {getStepContent(activeStep)}
-            </Typography>
-            <div>
-              <Button
-                disabled={activeStep === 0}
-                onClick={handleBack}
-                className={classes.button}
-              >
-                Back
-              </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-                className={classes.button}
-              >
-                {activeStep === steps.length - 1 ? "Finish" : "Next"}
-              </Button>
-            </div>
-          </div>
-        )}
-      </div>
     </div>
   );
 }
