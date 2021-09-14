@@ -9,7 +9,7 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import { Checkbox, TableFooter, Typography } from "@material-ui/core";
 import { Details } from "../../pages/_app";
-
+import { seatCount } from "../../pages/_app";
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -28,6 +28,19 @@ export default function WorkshopTable(props: formprops) {
 
   const [workshopA, setWorkshopA] = React.useState(values.workshopA);
   const [workshopB, setWorkshopB] = React.useState(values.workshopB);
+  const [seats, setSeats] = React.useState({
+    workshopA: 0,
+    workshopB: 0,
+  });
+  React.useEffect(() => {
+    seatCount()
+      .then((res) => {
+        setSeats(res);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, ["/register"]);
   return (
     <TableContainer component={Paper}>
       <Typography>
@@ -56,7 +69,9 @@ export default function WorkshopTable(props: formprops) {
               </Typography>
             </TableCell>
             <TableCell align="center">15-Oct-2021</TableCell>
-            <TableCell align="center">200</TableCell>
+            <TableCell align="center">{`${
+              200 - seats.workshopA
+            }/200`}</TableCell>
             <TableCell align="center">Rs 500</TableCell>
             <TableCell align="center">
               <Checkbox
@@ -82,7 +97,9 @@ export default function WorkshopTable(props: formprops) {
               </Typography>
             </TableCell>
             <TableCell align="center">17-Oct-2021</TableCell>
-            <TableCell align="center">200</TableCell>
+            <TableCell align="center">
+              {`${200 - seats.workshopB}/200`}
+            </TableCell>
             <TableCell align="center">Rs 500</TableCell>
             <TableCell align="center">
               <Checkbox

@@ -2,6 +2,7 @@ import { CssBaseline } from '@material-ui/core';
 import React from 'react';
 import LandingPage from '../components/LandingPage/LandingPage';
 import Workshops from '../components/Workshops/Workshops';
+import FaqComponent from '../components/Faq/faq';
 
 const Home: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const Home: React.FC = () => {
       <LandingPage />
       <Workshops />
       <Workshops />
+      <FaqComponent />
     </div>
   );
 };

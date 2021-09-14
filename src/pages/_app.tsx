@@ -4,6 +4,8 @@ import { useRouter, Router } from "next/router";
 import { makeStyles, Theme } from "@material-ui/core/styles";
 import "../styles.css";
 
+import axios from "axios";
+
 const useStyles = makeStyles((theme: Theme) => ({
   linearLoading: {
     position: "fixed",
@@ -33,6 +35,15 @@ export type Details = {
   discountValue: string | null;
 } | null;
 
+export const seatCount = async () => {
+  try {
+    const response = await axios.get(`http://localhost:8000/count`);
+    if (response) return response.data;
+    else throw new Error("Something Went Wrong");
+  } catch (e) {
+    console.log(e);
+  }
+};
 const MyApp = ({
   Component,
   pageProps,
