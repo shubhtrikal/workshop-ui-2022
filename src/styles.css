@@ -132,21 +132,28 @@
 }
 
 .workshop-content p {
+  color: #7b7b93;
   font-size: 1rem;
   padding: 2.4rem 1.2rem 1.2rem 2rem;
   text-align: justify;
 }
 
+.workshop-about h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #2c2c51;
+  padding: 2rem 0 0 2rem;
+}
+
 @media (max-width: 600px) {
   .workshop-content p {
-    font-size: 1rem;
+    padding: 1rem;
+  }
+  .workshop-about h2 {
     padding: 1rem;
   }
 }
-.workshop-info {
-  padding: 10px;
-  position: relative;
-}
+
 .workshop-card {
   padding: 10px 12px;
 }
@@ -155,7 +162,7 @@
   .workshop-card {
     background-color: white;
     position: absolute;
-    top: -208px;
+    top: -225px;
     left: 75px;
     width: 80%;
     z-index: 100;
@@ -164,6 +171,11 @@
     background-color: white;
     box-shadow: 0px 40px 60px 0px rgba(92, 10, 20, 0.08);
   }
+}
+
+.workshop-info {
+  padding: 10px;
+  position: relative;
 }
 
 .workshop-info .tag {
@@ -189,12 +201,72 @@
   margin-left: 30px;
   text-decoration: none;
 }
+
 .workshop-info .date-mob {
   margin: 2rem 0;
 }
+
+.workshop-info .btn {
+  padding: 7px 37px;
+}
+
 .date-mob .date {
   margin-left: 10px;
 }
-.workshop-info .btn {
-  padding: 7px 37px;
+
+.desc-content {
+  padding: 1rem;
+}
+
+.desc-content h2 {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #2c2c51;
+  margin-bottom: 25px;
+}
+
+.desc-content p {
+  font-size: 1rem;
+  color: #7b7b93;
+  line-height: 28px;
+  font-weight: 400;
+  margin-bottom: 40px;
+  text-align: justify;
+}
+
+.desc-content-desk {
+  padding: 0rem 1.2rem 1.2rem 2rem;
+}
+
+.desc-content ul {
+  margin-bottom: 0;
+  border-top: 1px solid #ececf6;
+  padding: 0.8rem 1.2rem;
+}
+
+.desc-content ul li {
+  font-size: 16px;
+  line-height: 28px;
+  color: #7b7b93;
+  font-weight: 400;
+  position: relative;
+  padding-left: 20px;
+  margin-top: 20px;
+  list-style: none;
+}
+
+.desc-content ul li span {
+  font-weight: 500;
+  color: #2c2c51;
+}
+
+.desc-content ul li:before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #26da15;
+  position: absolute;
+  left: 0;
+  top: 10px;
 }
