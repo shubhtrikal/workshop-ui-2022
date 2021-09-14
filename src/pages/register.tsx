@@ -6,7 +6,7 @@ import Steppers from "../components/Register/stepper";
 import WorkshopTable from "../components/Register/workshoptable";
 import Payment from "../components/Register/payment";
 import { Details } from "./_app";
-
+import { seatCount } from "./_app";
 const register = () => {
   const [userDetails, setUserDetails] = React.useState<Details>({
     orderId: "",
