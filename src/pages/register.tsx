@@ -1,11 +1,12 @@
-import React from "react";
-import Appbar from "../components/appbar";
-import Steppers from "../components/Register/stepper";
-import Registerform from "../components/Register/registerform";
-import WorkshopTable from "../components/Register/workshoptable";
-import Payment from "../components/Register/payment";
-import { Button } from "@material-ui/core";
-import { Details } from "./_app";
+import React from 'react';
+import Appbar from '../components/appbar';
+import Steppers from '../components/Register/stepper';
+import Registerform from '../components/Register/registerform';
+import WorkshopTable from '../components/Register/workshoptable';
+import Payment from '../components/Register/payment';
+import { Button } from '@material-ui/core';
+import { Details } from './_app';
+import { Container, Grid, Box } from '@material-ui/core';
 
 interface RegisterProps {
   userDetails: Details;
@@ -22,29 +23,35 @@ const Register: React.FC<RegisterProps> = ({ userDetails, updateDetails }) => {
 
   return (
     <>
-      <Appbar />
-      <Steppers activeStep={activeStep} />
-      {activeStep == 0 ? (
-        <Registerform
-          userDetails={userDetails}
-          updateDetails={updateDetails}
-          handleNext={next}
-        />
-      ) : activeStep == 1 ? (
-        <WorkshopTable
-          userDetails={userDetails}
-          updateDetails={updateDetails}
-          handleNext={next}
-          handleBack={prev}
-        />
-      ) : (
-        <Payment
-          userDetails={userDetails}
-          updateDetails={updateDetails}
-          handleNext={next}
-          handleBack={prev}
-        />
-      )}
+      <Container maxWidth='lg'>
+        <Box className='title'>
+          <h2>
+            <span>Registration for Workshops</span>
+          </h2>
+        </Box>
+        <Steppers activeStep={activeStep} />
+        {activeStep == 0 ? (
+          <Registerform
+            userDetails={userDetails}
+            updateDetails={updateDetails}
+            handleNext={next}
+          />
+        ) : activeStep == 1 ? (
+          <WorkshopTable
+            userDetails={userDetails}
+            updateDetails={updateDetails}
+            handleNext={next}
+            handleBack={prev}
+          />
+        ) : (
+          <Payment
+            userDetails={userDetails}
+            updateDetails={updateDetails}
+            handleNext={next}
+            handleBack={prev}
+          />
+        )}
+      </Container>
     </>
   );
 };
