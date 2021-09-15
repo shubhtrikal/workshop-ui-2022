@@ -71,8 +71,10 @@ const FaqComponent: React.FC = () => {
   return (
     <Container maxWidth='lg'>
       <section className={classes.root}>
-        <Box className={'workshop-title'}>
-          <h2>FAQ's</h2>
+        <Box className='title'>
+          <h2>
+            <span>FAQ's</span>
+          </h2>
         </Box>
         <Box className={'faq-section'}>{renderQuestionsAnswer}</Box>
       </section>

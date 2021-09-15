@@ -5,7 +5,7 @@ import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import Typography from '@material-ui/core/Typography';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Box } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 
 const Accordion = withStyles({
   root: {
@@ -63,20 +63,22 @@ const AccordionItem: React.FC<FaqProps> = ({
 }) => {
   const panel: string = 'panel' + index.toString();
   return (
-    <Accordion expanded={expanded === panel} onChange={handleChange(panel)}>
-      <AccordionSummary
-        aria-controls={`${panel}` + `d-content`}
-        id={`${panel}` + `d-header`}
-        expandIcon={<ExpandMoreIcon />}
-      >
-        <Box className={'questions'}>
-          <h3>{question}</h3>
-        </Box>
-      </AccordionSummary>
-      <AccordionDetails>
-        <Typography>{answer}</Typography>
-      </AccordionDetails>
-    </Accordion>
+    <Container maxWidth='md'>
+      <Accordion expanded={expanded === panel} onChange={handleChange(panel)}>
+        <AccordionSummary
+          aria-controls={`${panel}` + `d-content`}
+          id={`${panel}` + `d-header`}
+          expandIcon={<ExpandMoreIcon />}
+        >
+          <Box className={'questions'}>
+            <h3>{question}</h3>
+          </Box>
+        </AccordionSummary>
+        <AccordionDetails>
+          <p className='answers'>{answer}</p>
+        </AccordionDetails>
+      </Accordion>
+    </Container>
   );
 };
 

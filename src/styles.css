@@ -12,6 +12,10 @@
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Nunito', 'Roboto', sans-serif;
+}
+
 /* LANDING SECTION */
 
 .landing-section {
@@ -103,14 +107,20 @@
   padding-top: 2rem;
   padding-bottom: 1rem;
   background-color: white;
+  margin-bottom: 1rem;
 }
 
-.workshop-title {
+.workshop-div {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: 'Nunito', sans-serif;
   text-align: center;
   margin: 2.4rem 0;
 }
 
-.workshop-title h2 {
+.title h2 {
   font-size: 40px;
   line-height: 55px;
   font-weight: 600;
@@ -121,7 +131,7 @@
   margin-right: auto;
 }
 
-.workshop-title h2 span {
+.title h2 span {
   display: block;
   font-weight: 300;
 }
@@ -134,7 +144,7 @@
 .workshop-content p {
   color: #7b7b93;
   font-size: 1rem;
-  padding: 2.4rem 1.2rem 1.2rem 2rem;
+  padding: 1.2rem 1.2rem 1.2rem 2rem;
   text-align: justify;
 }
 
@@ -235,7 +245,7 @@
 }
 
 .desc-content-desk {
-  padding: 0rem 1.2rem 1.2rem 2rem;
+  padding: 0rem 0rem 1.2rem 2rem;
 }
 
 .desc-content ul {
@@ -271,15 +281,23 @@
   top: 10px;
 }
 
-
-.faq-section{
+.faq-section {
   font-family: 'Nunito', sans-serif;
   background-color: white;
 }
 
-.questions{
+.questions h3 {
   font-size: 18px;
   font-weight: 200;
   line-height: 28px;
   color: #2c2c51;
+}
+
+.answers {
+  font-size: 1rem;
+  color: #7b7b93;
+  line-height: 28px;
+  font-weight: 400;
+  text-align: justify;
+  margin: 0 0.5rem;
 }
