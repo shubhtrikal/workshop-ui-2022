@@ -90,6 +90,7 @@ const Registerform = (props: formprops) => {
             }}
           />
         </Paper>
+        
       </Grid>
     </>
   );
