@@ -35,15 +35,6 @@ export type Details = {
   discountValue: string | null;
 } | null;
 
-export const seatCount = async () => {
-  try {
-    const response = await axios.get(`http://localhost:8000/count`);
-    if (response) return response.data;
-    else throw new Error("Something Went Wrong");
-  } catch (e) {
-    console.log(e);
-  }
-};
 const MyApp = ({
   Component,
   pageProps,
@@ -57,7 +48,19 @@ const MyApp = ({
 
   /* Page loading animation */
   const [routeChange, setRouteChange] = React.useState<boolean>(false);
-  const [details, setDetails] = React.useState<Details>(null);
+  const [userDetails, setUserDetails] = React.useState<Details>({
+    name: "",
+    email: "",
+    phone: "",
+    college: "",
+    workshopA: false,
+    workshopB: false,
+    amount: "",
+    discountPercentage: "",
+    discountValue: "",
+    orderId: "",
+    success: false,
+  });
   Router.events.on("routeChangeStart", () => {
     setRouteChange(true);
   });
@@ -65,7 +68,7 @@ const MyApp = ({
   Router.events.on("routeChangeError", () => setRouteChange(false));
   const [loading, setLoading] = React.useState<boolean>(false);
 
-  const payment = (a: Details) => setDetails(a);
+  const updateDetails = (a: Details) => setUserDetails(a);
 
   /* Error reporting */
 
@@ -77,7 +80,11 @@ const MyApp = ({
         <LinearProgress color="secondary" className={classes.linearLoading} />
       )}
 
-      <Component payment={payment} details={details} {...pageProps} />
+      <Component
+        userDetails={userDetails}
+        updateDetails={updateDetails}
+        {...pageProps}
+      />
     </>
   );
 };

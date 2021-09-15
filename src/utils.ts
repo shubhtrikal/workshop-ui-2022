@@ -68,3 +68,14 @@ export const saveUser = async (
   //       return error;
   //     });
 };
+export const seatCount = async () => {
+  try {
+    const response = await axios.get(
+      `${process.env.NEXT_PUBLIC_BACKEND}/count`
+    );
+    if (response) return response.data;
+    else throw new Error("Something Went Wrong");
+  } catch (e) {
+    console.log(e);
+  }
+};

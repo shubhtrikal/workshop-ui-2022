@@ -13,46 +13,56 @@ import {
   TextField,
   Typography,
   Button,
+  Checkbox,
 } from "@material-ui/core";
+import { seatCount } from "../../utils";
 import { Details } from "../../pages/_app";
-import { seatCount } from "../../pages/_app";
 import { loadScript, checkPromo, saveUser } from "../../utils";
 import { useRouter } from "next/dist/client/router";
 const useStyles = makeStyles({
+  root: {
+    margin: "auto",
+    border: "solid,3px,black",
+    justifyContent: "center",
+    justifyItems: "center",
+  },
   table: {
     minWidth: 650,
   },
   promosection: {
+    margin: "10px",
     float: "right",
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
-    width: "50%",
+    width: "30%",
   },
   textfield: {
     margin: "8px",
     width: "90%",
   },
-  btn: {
+  pbtn: {
     margin: "8px",
     width: "90%",
   },
+  btn: { margin: "10px", width: "150px", alignItems: "center" },
 });
 
-interface formprops {
+interface props {
   userDetails: Details;
   updateDetails: (details: any) => void;
   handleNext: () => void;
   handleBack: () => void;
 }
 
-export default function Payment(props: formprops) {
+export default function Payment(props: props) {
   const router = useRouter();
   const classes = useStyles();
   const values = props.userDetails;
   const [promoCode, setPromocode] = React.useState<string>();
   const [discount, setDiscount] = React.useState<number>(0);
   const [loading, setLoading] = React.useState<boolean>(false);
+  const [terms, setTerms] = React.useState<boolean>(false);
   const [seats, setSeats] = React.useState({
     workshopA: 0,
     workshopB: 0,
@@ -66,7 +76,8 @@ export default function Payment(props: formprops) {
     d: 0,
     total: 1000,
   });
-  const handlePromo = async (promoCode) => {
+  const handlePromo = async (promoCode: string) => {
+    setLoading(true);
     const res = await checkPromo(promoCode);
     if (!res) setDiscount(10);
     const d = Math.ceil(
@@ -79,6 +90,7 @@ export default function Payment(props: formprops) {
       d: d,
       total: total,
     });
+    setLoading(false);
   };
   const displayRazorpay = async (values: Details) => {
     const { name, email, phone, college } = values;
@@ -184,9 +196,10 @@ export default function Payment(props: formprops) {
     paymentObject.open();
   };
   React.useEffect(() => {
+    setLoading(true);
     seatCount()
       .then((res) => {
-        setSeats(res);
+        if (res) setSeats(res);
         const wa1 = values.workshopA ? 500 : 0;
         const wa2 = values.workshopB ? 500 : 0;
         const ewa1 = values.workshopA && seats.workshopA < 50 ? 50 : 0;
@@ -204,17 +217,22 @@ export default function Payment(props: formprops) {
         });
       })
       .catch((e) => {
+        alert("Error , Please Try Again");
         console.log(e);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, ["/register"]);
 
   return (
     <>
       <Grid container className={classes.promosection}>
-        <Grid item xs={12} lg={7}>
+        <Grid item xs={12} lg={9}>
           <TextField
             label="Promo Code"
             variant="outlined"
+            size="small"
             value={promoCode}
             className={classes.textfield}
             onChange={(e) => {
@@ -222,11 +240,11 @@ export default function Payment(props: formprops) {
             }}
           />
         </Grid>
-        <Grid item xs={12} lg={5}>
+        <Grid item xs={12} lg={3}>
           <Button
             variant="outlined"
             color="primary"
-            className={classes.btn}
+            className={classes.pbtn}
             onClick={() => {
               handlePromo(promoCode);
             }}
@@ -282,13 +300,13 @@ export default function Payment(props: formprops) {
               <TableCell align="center">Rs {bill.ewa2}</TableCell>
               <TableCell align="center">Rs {bill.wa2 - bill.ewa2}</TableCell>
             </TableRow>
-            <TableRow>
+            {/* <TableRow>
               <TableCell colSpan={5} align="right">
                 Sub Total
               </TableCell>
               <TableCell />
               <TableCell align="center">Rs {bill.d + bill.total}</TableCell>
-            </TableRow>
+            </TableRow> */}
             <TableRow>
               <TableCell colSpan={5} align="right">
                 Discount
@@ -306,16 +324,34 @@ export default function Payment(props: formprops) {
           <TableFooter></TableFooter>
         </Table>
       </TableContainer>
-
-      <Grid container>
-        <Button variant="outlined">Back</Button>
+      <Grid container alignItems="center" className={classes.root}>
+        <Checkbox
+          onChange={() => {
+            setTerms(!terms);
+          }}
+        />{" "}
+        <Typography variant="h6" component="h6">
+          {" "}
+          Accept Terms and Conditions
+        </Typography>
+      </Grid>
+      <Grid container className={classes.root}>
         <Button
+          className={classes.btn}
+          variant="outlined"
+          onClick={props.handleBack}
+        >
+          Back
+        </Button>
+        <Button
+          className={classes.btn}
+          disabled={!bill.total || !terms}
           variant="outlined"
           onClick={() => {
             displayRazorpay(values);
           }}
         >
-          Pay
+          PAY
         </Button>
       </Grid>
     </>
