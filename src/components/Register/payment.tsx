@@ -13,11 +13,11 @@ import {
   TextField,
   Typography,
   Button,
-  Card,
 } from "@material-ui/core";
 import { Details } from "../../pages/_app";
 import { seatCount } from "../../pages/_app";
-import axios from "axios";
+import { loadScript, checkPromo, saveUser } from "../../utils";
+import { useRouter } from "next/dist/client/router";
 const useStyles = makeStyles({
   table: {
     minWidth: 650,
@@ -45,30 +45,19 @@ interface formprops {
   handleNext: () => void;
   handleBack: () => void;
 }
-const checkPromo = async (promo) => {
-  try {
-    const res = await axios.post(
-      `${process.env.NEXT_BACKEND}/checkPromo`,
-      promo
-    );
-    if (res)
-      document.getElementById("message").innerHTML = "Promo Code Applied";
-    return res;
-  } catch (e) {
-    document.getElementById("message").innerHTML =
-      "Error, No Such Promo Code Found";
-    return false;
-  }
-};
+
 export default function Payment(props: formprops) {
+  const router = useRouter();
   const classes = useStyles();
+  const values = props.userDetails;
   const [promoCode, setPromocode] = React.useState<string>();
-  const [discount, setDiscount] = React.useState(0);
+  const [discount, setDiscount] = React.useState<number>(0);
+  const [loading, setLoading] = React.useState<boolean>(false);
   const [seats, setSeats] = React.useState({
     workshopA: 0,
     workshopB: 0,
   });
-  const values = props.userDetails;
+
   const [bill, setBill] = React.useState({
     wa1: 500,
     wa2: 500,
@@ -90,6 +79,109 @@ export default function Payment(props: formprops) {
       d: d,
       total: total,
     });
+  };
+  const displayRazorpay = async (values: Details) => {
+    const { name, email, phone, college } = values;
+    const res = await loadScript(
+      "https://checkout.razorpay.com/v1/checkout.js"
+    );
+
+    if (!res) {
+      alert("Razorpay SDK failed to load. Are you online?");
+      return;
+    }
+
+    const data = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/razorpay`, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        amount: bill.total * 100,
+      }),
+    }).then((t) => t.json());
+
+    const options = {
+      key: process.env.NEXT_PUBLIC_RAZORPAY_KEY,
+      currency: "INR",
+      amount: (bill.total * 100).toString(),
+      order_id: data.id,
+      name: "ISTE SC MANIT",
+      description: "Payment for workshop",
+      image: "/logo.jpeg",
+      handler: function (response) {
+        setLoading(true);
+        saveUser(
+          values,
+          bill.total.toString(),
+          response.razorpay_payment_id,
+          seats.workshopA,
+          seats.workshopB,
+          promoCode
+        )
+          .then((res) => {
+            if (res.error) {
+              props.updateDetails({
+                orderId: data.id,
+                success: false,
+                name: null,
+                email: null,
+                phone: null,
+                college: null,
+                discountPercentage: null,
+                discountValue: null,
+                amount: null,
+                workshopA: null,
+                workshopB: null,
+              });
+              router.push("/failure");
+            } else {
+              props.updateDetails({
+                orderId: data.id,
+                success: true,
+                name: res.name,
+                email: res.email,
+                phone: res.phone,
+                workshopA: res.workshopA,
+                workshopB: res.workshopB,
+                college: res.college,
+                discountPercentage: discount,
+                discountValue: bill.d.toString(),
+                amount: bill.total.toString(),
+              });
+              router.push("/success");
+            }
+          })
+          .catch((err) => {
+            props.updateDetails({
+              orderId: data.id,
+              success: false,
+              name: null,
+              email: null,
+              phone: null,
+              college: null,
+              discountPercentage: null,
+              discountValue: null,
+              amount: null,
+              workshopA: null,
+              workshopB: null,
+            });
+            router.push("/failure");
+          })
+          .finally(() => {
+            setLoading(false);
+          });
+      },
+      prefill: {
+        name,
+        email,
+        mobile: phone,
+      },
+    };
+    const _window = window as any;
+    const paymentObject = new _window.Razorpay(options);
+    paymentObject.open();
   };
   React.useEffect(() => {
     seatCount()
@@ -217,7 +309,14 @@ export default function Payment(props: formprops) {
 
       <Grid container>
         <Button variant="outlined">Back</Button>
-        <Button variant="outlined">Pay</Button>
+        <Button
+          variant="outlined"
+          onClick={() => {
+            displayRazorpay(values);
+          }}
+        >
+          Pay
+        </Button>
       </Grid>
     </>
   );
