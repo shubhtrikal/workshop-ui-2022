@@ -1,35 +1,35 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import {
   Grid,
   Checkbox,
   TableFooter,
   Typography,
   Button,
-} from "@material-ui/core";
-import { Details } from "../../pages/_app";
-import { seatCount } from "../../utils";
+} from '@material-ui/core';
+import { Details } from '../../pages/_app';
+import { seatCount } from '../../utils';
 const useStyles = makeStyles({
   root: {
-    margin: "auto",
-    border: "solid,3px,black",
-    justifyContent: "center",
-    justifyItems: "center",
+    margin: 'auto',
+    border: 'solid,3px,black',
+    justifyContent: 'center',
+    justifyItems: 'center',
   },
   table: {
     minWidth: 650,
   },
   btn: {
-    margin: "10px",
-    width: "150px",
-    alignItems: "center",
+    margin: '10px',
+    width: '150px',
+    alignItems: 'center',
   },
 });
 
@@ -61,78 +61,77 @@ export default function WorkshopTable(props: tableprops) {
       .finally(() => {
         setLoading(false);
       });
-  }, ["/register"]);
+  }, ['/register']);
   return (
     <>
-      <Grid container alignItems="center" className={classes.root}>
+      <Grid container alignItems='center' className={classes.root}>
         <TableContainer component={Paper}>
           <Typography>
-            {" "}
+            {' '}
             Note: First 50 students of Each Workshop will get 10 % discount
           </Typography>
-          <Table className={classes.table} aria-label="simple table">
+          <Table className={classes.table} aria-label='simple table'>
             <TableHead>
               <TableRow>
-                <TableCell align="left">Sr. No.</TableCell>
-                <TableCell align="center">Workshop</TableCell>
-                <TableCell align="center">Date</TableCell>
-                <TableCell align="center">Seats Left</TableCell>
-                <TableCell align="center">Price</TableCell>
-                <TableCell align="center">Register</TableCell>
+                <TableCell align='left'>Sr. No.</TableCell>
+                <TableCell align='center'>Workshop</TableCell>
+                <TableCell align='center'>Date</TableCell>
+                <TableCell align='center'>Seats Left</TableCell>
+                <TableCell align='center'>Price</TableCell>
+                <TableCell align='center'>Register</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               <TableRow>
-                <TableCell align="left">1</TableCell>
-                <TableCell align="center">
-                  <Typography component="h6">Finance</Typography>
-                  <Typography component="p" variant="inherit">
+                <TableCell align='left'>1</TableCell>
+                <TableCell align='center'>
+                  <Typography component='h6'>Finance</Typography>
+                  <Typography component='p' variant='inherit'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Dolor, ipsam?
                   </Typography>
                 </TableCell>
-                <TableCell align="center">15-Oct-2021</TableCell>
-                <TableCell align="center">{`${
+                <TableCell align='center'>15-Oct-2021</TableCell>
+                <TableCell align='center'>{`${
                   200 - seats.workshopA
                 }/200`}</TableCell>
-                <TableCell align="center">Rs 500</TableCell>
-                <TableCell align="center">
+                <TableCell align='center'>Rs 500</TableCell>
+                <TableCell align='center'>
                   <Checkbox
                     checked={values.workshopA}
                     onChange={(e) => {
-                      setWorkshopA(!workshopA);
                       props.updateDetails({
                         ...values,
-                        workshopA: workshopA,
+                        workshopA: !workshopA,
                       });
-                      console.log(workshopA);
+                      setWorkshopA(!workshopA);
                     }}
                   />
                 </TableCell>
               </TableRow>
               <TableRow>
-                <TableCell align="left">2</TableCell>
-                <TableCell align="center">
-                  <Typography component="h6">Data Science</Typography>
-                  <Typography component="p" variant="inherit">
+                <TableCell align='left'>2</TableCell>
+                <TableCell align='center'>
+                  <Typography component='h6'>Data Science</Typography>
+                  <Typography component='p' variant='inherit'>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Dolor, ipsam?
                   </Typography>
                 </TableCell>
-                <TableCell align="center">17-Oct-2021</TableCell>
-                <TableCell align="center">
+                <TableCell align='center'>17-Oct-2021</TableCell>
+                <TableCell align='center'>
                   {`${200 - seats.workshopB}/200`}
                 </TableCell>
-                <TableCell align="center">Rs 500</TableCell>
-                <TableCell align="center">
+                <TableCell align='center'>Rs 500</TableCell>
+                <TableCell align='center'>
                   <Checkbox
                     checked={values.workshopB}
                     onChange={(e) => {
-                      setWorkshopB(!workshopB);
                       props.updateDetails({
                         ...values,
-                        workshopB: workshopB,
+                        workshopB: !workshopB,
                       });
+                      setWorkshopB(!workshopB);
                     }}
                   />
                 </TableCell>
@@ -145,15 +144,16 @@ export default function WorkshopTable(props: tableprops) {
       <Grid container className={classes.root}>
         <Button
           className={classes.btn}
-          variant="outlined"
+          variant='outlined'
           onClick={props.handleBack}
         >
           Back
         </Button>
         <Button
           className={classes.btn}
-          variant="outlined"
+          variant='outlined'
           onClick={props.handleNext}
+          disabled={!values.workshopA && !values.workshopB}
         >
           NEXT
         </Button>

@@ -1,12 +1,12 @@
-import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 import {
   Grid,
   TableFooter,
@@ -14,38 +14,38 @@ import {
   Typography,
   Button,
   Checkbox,
-} from "@material-ui/core";
-import { seatCount } from "../../utils";
-import { Details } from "../../pages/_app";
-import { loadScript, checkPromo, saveUser } from "../../utils";
-import { useRouter } from "next/dist/client/router";
+} from '@material-ui/core';
+import { seatCount } from '../../utils';
+import { Details } from '../../pages/_app';
+import { loadScript, checkPromo, saveUser } from '../../utils';
+import { useRouter } from 'next/dist/client/router';
 const useStyles = makeStyles({
   root: {
-    margin: "auto",
-    border: "solid,3px,black",
-    justifyContent: "center",
-    justifyItems: "center",
+    margin: 'auto',
+    border: 'solid,3px,black',
+    justifyContent: 'center',
+    justifyItems: 'center',
   },
   table: {
     minWidth: 650,
   },
   promosection: {
-    margin: "10px",
-    float: "right",
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    width: "30%",
+    margin: '10px',
+    float: 'right',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '30%',
   },
   textfield: {
-    margin: "8px",
-    width: "90%",
+    margin: '8px',
+    width: '90%',
   },
   pbtn: {
-    margin: "8px",
-    width: "90%",
+    margin: '8px',
+    width: '90%',
   },
-  btn: { margin: "10px", width: "150px", alignItems: "center" },
+  btn: { margin: '10px', width: '150px', alignItems: 'center' },
 });
 
 interface props {
@@ -95,19 +95,19 @@ export default function Payment(props: props) {
   const displayRazorpay = async (values: Details) => {
     const { name, email, phone, college } = values;
     const res = await loadScript(
-      "https://checkout.razorpay.com/v1/checkout.js"
+      'https://checkout.razorpay.com/v1/checkout.js'
     );
 
     if (!res) {
-      alert("Razorpay SDK failed to load. Are you online?");
+      alert('Razorpay SDK failed to load. Are you online?');
       return;
     }
 
     const data = await fetch(`${process.env.NEXT_PUBLIC_BACKEND}/razorpay`, {
-      method: "POST",
+      method: 'POST',
       headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         amount: bill.total * 100,
@@ -116,12 +116,12 @@ export default function Payment(props: props) {
 
     const options = {
       key: process.env.NEXT_PUBLIC_RAZORPAY_KEY,
-      currency: "INR",
+      currency: 'INR',
       amount: (bill.total * 100).toString(),
       order_id: data.id,
-      name: "ISTE SC MANIT",
-      description: "Payment for workshop",
-      image: "/logo.jpeg",
+      name: 'ISTE SC MANIT',
+      description: 'Payment for workshop',
+      image: '/logo.jpeg',
       handler: function (response) {
         setLoading(true);
         saveUser(
@@ -147,7 +147,7 @@ export default function Payment(props: props) {
                 workshopA: null,
                 workshopB: null,
               });
-              router.push("/failure");
+              router.push('/failure');
             } else {
               props.updateDetails({
                 orderId: data.id,
@@ -162,7 +162,7 @@ export default function Payment(props: props) {
                 discountValue: bill.d.toString(),
                 amount: bill.total.toString(),
               });
-              router.push("/success");
+              router.push('/success');
             }
           })
           .catch((err) => {
@@ -179,7 +179,7 @@ export default function Payment(props: props) {
               workshopA: null,
               workshopB: null,
             });
-            router.push("/failure");
+            router.push('/failure');
           })
           .finally(() => {
             setLoading(false);
@@ -217,22 +217,22 @@ export default function Payment(props: props) {
         });
       })
       .catch((e) => {
-        alert("Error , Please Try Again");
+        alert('Error , Please Try Again');
         console.log(e);
       })
       .finally(() => {
         setLoading(false);
       });
-  }, ["/register"]);
+  }, ['/register']);
 
   return (
     <>
       <Grid container className={classes.promosection}>
         <Grid item xs={12} lg={9}>
           <TextField
-            label="Promo Code"
-            variant="outlined"
-            size="small"
+            label='Promo Code'
+            variant='outlined'
+            size='small'
             value={promoCode}
             className={classes.textfield}
             onChange={(e) => {
@@ -242,8 +242,8 @@ export default function Payment(props: props) {
         </Grid>
         <Grid item xs={12} lg={3}>
           <Button
-            variant="outlined"
-            color="primary"
+            variant='outlined'
+            color='primary'
             className={classes.pbtn}
             onClick={() => {
               handlePromo(promoCode);
@@ -254,52 +254,56 @@ export default function Payment(props: props) {
         </Grid>
         <Grid item lg={12}>
           <p
-            style={{ marginRight: "10px", textAlign: "right" }}
-            id="message"
+            style={{ marginRight: '10px', textAlign: 'right' }}
+            id='message'
           ></p>
         </Grid>
       </Grid>
 
       <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
+        <Table className={classes.table} aria-label='simple table'>
           <TableHead>
             <TableRow>
-              <TableCell align="left">Sr. No.</TableCell>
-              <TableCell align="center">Workshop</TableCell>
-              <TableCell align="center">Date</TableCell>
-              <TableCell align="center">Seats Left</TableCell>
-              <TableCell align="center">Price</TableCell>
-              <TableCell align="center">Discount</TableCell>
-              <TableCell align="center">Total</TableCell>
+              <TableCell align='left'>Sr. No.</TableCell>
+              <TableCell align='center'>Workshop</TableCell>
+              <TableCell align='center'>Date</TableCell>
+              <TableCell align='center'>Seats Left</TableCell>
+              <TableCell align='center'>Price</TableCell>
+              <TableCell align='center'>Discount</TableCell>
+              <TableCell align='center'>Total</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            <TableRow>
-              <TableCell align="left">1</TableCell>
-              <TableCell align="center">
-                <Typography component="h6">Finance</Typography>
-              </TableCell>
-              <TableCell align="center">15-Oct-2021</TableCell>
-              <TableCell align="center">{`${
-                200 - seats.workshopA
-              }/200`}</TableCell>
-              <TableCell align="center">Rs {bill.wa1}</TableCell>
-              <TableCell align="center">Rs {bill.ewa1}</TableCell>
-              <TableCell align="center">Rs {bill.wa1 - bill.ewa1}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell align="left">2</TableCell>
-              <TableCell align="center">
-                <Typography component="h6">Data Science</Typography>
-              </TableCell>
-              <TableCell align="center">17-Oct-2021</TableCell>
-              <TableCell align="center">{`${
-                200 - seats.workshopB
-              }/200`}</TableCell>
-              <TableCell align="center">Rs {bill.wa2}</TableCell>
-              <TableCell align="center">Rs {bill.ewa2}</TableCell>
-              <TableCell align="center">Rs {bill.wa2 - bill.ewa2}</TableCell>
-            </TableRow>
+            {values.workshopA && (
+              <TableRow>
+                <TableCell align='left'>1</TableCell>
+                <TableCell align='center'>
+                  <Typography component='h6'>Finance</Typography>
+                </TableCell>
+                <TableCell align='center'>15-Oct-2021</TableCell>
+                <TableCell align='center'>{`${
+                  200 - seats.workshopA
+                }/200`}</TableCell>
+                <TableCell align='center'>Rs {bill.wa1}</TableCell>
+                <TableCell align='center'>Rs {bill.ewa1}</TableCell>
+                <TableCell align='center'>Rs {bill.wa1 - bill.ewa1}</TableCell>
+              </TableRow>
+            )}
+            {values.workshopB && (
+              <TableRow>
+                <TableCell align='left'>{values.workshopA ? 2 : 1}</TableCell>
+                <TableCell align='center'>
+                  <Typography component='h6'>Data Science</Typography>
+                </TableCell>
+                <TableCell align='center'>17-Oct-2021</TableCell>
+                <TableCell align='center'>{`${
+                  200 - seats.workshopB
+                }/200`}</TableCell>
+                <TableCell align='center'>Rs {bill.wa2}</TableCell>
+                <TableCell align='center'>Rs {bill.ewa2}</TableCell>
+                <TableCell align='center'>Rs {bill.wa2 - bill.ewa2}</TableCell>
+              </TableRow>
+            )}
             {/* <TableRow>
               <TableCell colSpan={5} align="right">
                 Sub Total
@@ -308,37 +312,37 @@ export default function Payment(props: props) {
               <TableCell align="center">Rs {bill.d + bill.total}</TableCell>
             </TableRow> */}
             <TableRow>
-              <TableCell colSpan={5} align="right">
+              <TableCell colSpan={5} align='right'>
                 Discount
               </TableCell>
-              <TableCell align="center">Rs {bill.d}</TableCell>
+              <TableCell align='center'>Rs {bill.d}</TableCell>
             </TableRow>
             <TableRow>
-              <TableCell colSpan={5} align="right">
+              <TableCell colSpan={5} align='right'>
                 Total
               </TableCell>
               <TableCell />
-              <TableCell align="center">Rs {bill.total}</TableCell>
+              <TableCell align='center'>Rs {bill.total}</TableCell>
             </TableRow>
           </TableBody>
           <TableFooter></TableFooter>
         </Table>
       </TableContainer>
-      <Grid container alignItems="center" className={classes.root}>
+      <Grid container alignItems='center' className={classes.root}>
         <Checkbox
           onChange={() => {
             setTerms(!terms);
           }}
-        />{" "}
-        <Typography variant="h6" component="h6">
-          {" "}
+        />{' '}
+        <Typography variant='h6' component='h6'>
+          {' '}
           Accept Terms and Conditions
         </Typography>
       </Grid>
       <Grid container className={classes.root}>
         <Button
           className={classes.btn}
-          variant="outlined"
+          variant='outlined'
           onClick={props.handleBack}
         >
           Back
@@ -346,7 +350,7 @@ export default function Payment(props: props) {
         <Button
           className={classes.btn}
           disabled={!bill.total || !terms}
-          variant="outlined"
+          variant='outlined'
           onClick={() => {
             displayRazorpay(values);
           }}
