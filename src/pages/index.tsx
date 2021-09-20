@@ -3,6 +3,7 @@ import React from 'react';
 import LandingPage from '../components/LandingPage/LandingPage';
 import FaqComponent from '../components/Faq/faq';
 import WorkshopSection from '../components/Workshops/WorkshopSection';
+import Footer from '../components/Footer/Footer';
 
 const Home: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const Home: React.FC = () => {
       <LandingPage />
       <WorkshopSection />
       <FaqComponent />
+      <Footer />
     </div>
   );
 };
