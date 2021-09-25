@@ -84,8 +84,8 @@ const Workshops: React.FC<workshopProps> = ({
               <span>Master Class:</span> Learn from Expert.
             </li>
             <li>
-              <span>Perks and Prizes:</span> Certificates to all candidates and
-              goodies for good performers in workshop.
+              <span>Perks and Benefits:</span> Certificates to all candidates
+              and goodies for good performers in workshop.
             </li>
             <li>
               <span>Mentor:</span> Mr. Prateek Narang

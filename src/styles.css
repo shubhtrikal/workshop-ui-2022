@@ -52,24 +52,32 @@ body {
 }
 
 .landing-content h6 {
-  font-size: 24px;
+  font-size: 1.2rem;
   font-weight: 500;
   color: #fcb747;
-  margin-bottom: 18px;
+  margin-bottom: 2rem;
 }
 
 .landing-content h2 {
   font-family: 'Obveron', 'Nunito', serif;
   font-size: 80px;
-  line-height: 94px;
+  line-height: 84px;
   font-weight: 300;
   color: #fff;
-  margin-top: 30px;
-  margin-bottom: 45px;
+  margin: 45px 0;
 }
 
 .landing-content h2 span {
   color: #fc2c57;
+}
+
+.landing-content h4 {
+  color: white;
+  font-size: 1.6rem;
+}
+
+.landing-content h4 span {
+  font-size: 1rem;
 }
 
 .btn {
