@@ -14,6 +14,7 @@
 
 body {
   font-family: 'Nunito', 'Roboto', sans-serif;
+  overflow-x: hidden;
 }
 
 /* LANDING SECTION */
@@ -334,6 +335,56 @@ body {
 
 .prizes-card:hover {
   box-shadow: 0px 30px 60px 0px rgba(38, 59, 94, 0.1);
+}
+
+/* MENTOR SECTION */
+
+.mentor-section {
+  font-family: 'Nunito', 'Roboto', sans-serif;
+  margin: 60px 0;
+  margin-bottom: 100px;
+}
+
+.mentor-box {
+  padding: 20px 80px;
+  text-align: center;
+  box-shadow: 0px 20px 40px 0px rgb(12 0 46 / 6%);
+  border-radius: 15px;
+}
+
+@media (max-width: 600px) {
+  .mentor-box {
+    padding: 20px 20px;
+  }
+}
+
+.mentor-img {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mentor-heading {
+  margin-bottom: 30px;
+}
+
+.mentor-heading h2 {
+  color: #2c2c51;
+  font-size: 1.6rem;
+  margin-bottom: 5px;
+}
+
+.mentor-heading h4 {
+  color: #7b7b93;
+  font-size: 1rem;
+}
+
+.mentor-details p {
+  font-size: 1rem;
+  line-height: 30px;
+  color: #7b7b93;
+  margin-bottom: 20px;
 }
 
 /* FOOTER SECTION */

@@ -5,6 +5,7 @@ import FaqComponent from '../components/Faq/faq';
 import WorkshopSection from '../components/Workshops/WorkshopSection';
 import Footer from '../components/Footer/Footer';
 import Prizes from '../components/Prizes/Prizes';
+import Mentor from '../components/Mentor';
 
 const Home: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const Home: React.FC = () => {
       <LandingPage />
       <WorkshopSection />
       <Prizes />
+      <Mentor />
       <FaqComponent />
       <Footer />
     </div>
