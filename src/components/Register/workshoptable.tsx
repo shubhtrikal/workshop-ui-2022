@@ -13,6 +13,7 @@ import {
   TableFooter,
   Typography,
   Button,
+  Box,
 } from '@material-ui/core';
 import { Details } from '../../pages/_app';
 import { seatCount } from '../../utils';
@@ -22,6 +23,7 @@ const useStyles = makeStyles({
     border: 'solid,3px,black',
     justifyContent: 'center',
     justifyItems: 'center',
+    marginBottom: '20px',
   },
   table: {
     minWidth: 650,
@@ -30,6 +32,11 @@ const useStyles = makeStyles({
     margin: '10px',
     width: '150px',
     alignItems: 'center',
+    transition: 'all 0.2s linear',
+    '&:hover': {
+      background: '#2c2c51',
+      color: 'white',
+    },
   },
 });
 
@@ -65,11 +72,12 @@ export default function WorkshopTable(props: tableprops) {
   return (
     <>
       <Grid container alignItems='center' className={classes.root}>
-        <TableContainer component={Paper}>
-          <Typography>
-            {' '}
-            Note: First 50 students of Each Workshop will get 10 % discount
+        <Box mb={5} mt={5}>
+          <Typography variant='h6'>
+            Hurry Up! First 50 students of Each Workshop will get 10% discount
           </Typography>
+        </Box>
+        <TableContainer component={Paper}>
           <Table className={classes.table} aria-label='simple table'>
             <TableHead>
               <TableRow>

@@ -14,28 +14,29 @@ import {
   Typography,
   Button,
   Checkbox,
+  Box,
 } from '@material-ui/core';
 import { seatCount } from '../../utils';
 import { Details } from '../../pages/_app';
 import { loadScript, checkPromo, saveUser } from '../../utils';
 import { useRouter } from 'next/dist/client/router';
-const useStyles = makeStyles({
+
+const useStyles = makeStyles((theme) => ({
   root: {
-    margin: 'auto',
     border: 'solid,3px,black',
     justifyContent: 'center',
     justifyItems: 'center',
+    margin: '20px 0',
   },
   table: {
     minWidth: 650,
   },
   promosection: {
-    margin: '10px',
-    float: 'right',
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
+    margin: '20px',
     width: '30%',
+    [theme.breakpoints.down('md')]: {
+      width: '80%',
+    },
   },
   textfield: {
     margin: '8px',
@@ -44,9 +45,23 @@ const useStyles = makeStyles({
   pbtn: {
     margin: '8px',
     width: '90%',
+    transition: 'all 0.2s linear',
+    '&:hover': {
+      background: '#2c2c51',
+      color: 'white',
+    },
   },
-  btn: { margin: '10px', width: '150px', alignItems: 'center' },
-});
+  btn: {
+    margin: '10px',
+    width: '150px',
+    alignItems: 'center',
+    transition: 'all 0.2s linear',
+    '&:hover': {
+      background: '#2c2c51',
+      color: 'white',
+    },
+  },
+}));
 
 interface props {
   userDetails: Details;
@@ -227,8 +242,13 @@ export default function Payment(props: props) {
 
   return (
     <>
-      <Grid container className={classes.promosection}>
-        <Grid item xs={12} lg={9}>
+      <Grid
+        container
+        justifyContent='center'
+        alignItems='center'
+        className={classes.promosection}
+      >
+        <Grid item xs={12} lg={8}>
           <TextField
             label='Promo Code'
             variant='outlined'
@@ -240,7 +260,7 @@ export default function Payment(props: props) {
             }}
           />
         </Grid>
-        <Grid item xs={12} lg={3}>
+        <Grid item xs={12} lg={4}>
           <Button
             variant='outlined'
             color='primary'
@@ -252,11 +272,13 @@ export default function Payment(props: props) {
             Apply
           </Button>
         </Grid>
-        <Grid item lg={12}>
-          <p
-            style={{ marginRight: '10px', textAlign: 'right' }}
-            id='message'
-          ></p>
+        <Grid container item lg={12} alignItems='flex-start'>
+          <Box ml={1} mt={1}>
+            <p
+              style={{ marginRight: '10px', textAlign: 'right' }}
+              id='message'
+            ></p>
+          </Box>
         </Grid>
       </Grid>
 
