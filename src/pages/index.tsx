@@ -4,6 +4,7 @@ import LandingPage from '../components/LandingPage/LandingPage';
 import FaqComponent from '../components/Faq/faq';
 import WorkshopSection from '../components/Workshops/WorkshopSection';
 import Footer from '../components/Footer/Footer';
+import Prizes from '../components/Prizes/Prizes';
 
 const Home: React.FC = () => {
   return (
@@ -11,6 +12,7 @@ const Home: React.FC = () => {
       <CssBaseline />
       <LandingPage />
       <WorkshopSection />
+      <Prizes />
       <FaqComponent />
       <Footer />
     </div>

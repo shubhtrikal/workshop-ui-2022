@@ -303,6 +303,39 @@ body {
   margin: 0 0.5rem;
 }
 
+/* PRIZES SECTION */
+
+.prizes-card {
+  background-color: white;
+  box-shadow: 0px 3px 10px 0px rgba(38, 59, 94, 0.1);
+  padding: 60px 40px 40px;
+  margin-bottom: 30px;
+  transition: all 0.3s linear;
+  cursor: pointer;
+}
+
+.prizes-card h4 {
+  font-size: 1.5rem;
+  line-height: 28px;
+  color: #2c2c51;
+  font-weight: 500;
+  margin-top: 34px;
+  margin-bottom: 16px;
+  transition: color 0.2s linear;
+}
+
+.prizes-card p {
+  margin-bottom: 0;
+  font-size: 1rem;
+  line-height: 30px;
+  color: #7b7b93;
+  margin-bottom: 40px;
+}
+
+.prizes-card:hover {
+  box-shadow: 0px 30px 60px 0px rgba(38, 59, 94, 0.1);
+}
+
 /* FOOTER SECTION */
 
 footer {
