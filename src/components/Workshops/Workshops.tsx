@@ -90,6 +90,9 @@ const Workshops: React.FC<workshopProps> = ({
             <li>
               <span>Mentor:</span> Mr. Prateek Narang
             </li>
+            <li>
+              <span>Price:</span> 900 $
+            </li>
           </ul>
         </Grid>
         <Grid item xs={12} md={6}>
