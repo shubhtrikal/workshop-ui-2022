@@ -1,14 +1,15 @@
-import React from "react";
-import { CssBaseline, LinearProgress } from "@material-ui/core";
-import { useRouter, Router } from "next/router";
-import { makeStyles, Theme } from "@material-ui/core/styles";
-import "../styles.css";
+import React from 'react';
+import { CssBaseline, LinearProgress } from '@material-ui/core';
+import { useRouter, Router } from 'next/router';
+import { makeStyles, Theme } from '@material-ui/core/styles';
+import '../styles.css';
 
-import axios from "axios";
+import axios from 'axios';
+import LoadingScreen from '../components/loadingscreen';
 
 const useStyles = makeStyles((theme: Theme) => ({
   linearLoading: {
-    position: "fixed",
+    position: 'fixed',
     top: 0,
     left: 0,
     right: 0,
@@ -44,29 +45,29 @@ const MyApp = ({
 }) => {
   const router = useRouter();
   const classes = useStyles();
-  const paths = router.route.split("/");
+  const paths = router.route.split('/');
 
   /* Page loading animation */
   const [routeChange, setRouteChange] = React.useState<boolean>(false);
+  const [loading, setLoading] = React.useState<boolean>(false);
   const [userDetails, setUserDetails] = React.useState<Details>({
-    name: "",
-    email: "",
-    phone: "",
-    college: "",
+    name: '',
+    email: '',
+    phone: '',
+    college: '',
     workshopA: false,
     workshopB: false,
-    amount: "",
-    discountPercentage: "",
-    discountValue: "",
-    orderId: "",
+    amount: '',
+    discountPercentage: '',
+    discountValue: '',
+    orderId: '',
     success: false,
   });
-  Router.events.on("routeChangeStart", () => {
-    setRouteChange(true);
+  Router.events.on('routeChangeStart', () => {
+    setLoading(true);
   });
-  Router.events.on("routeChangeComplete", () => setRouteChange(false));
-  Router.events.on("routeChangeError", () => setRouteChange(false));
-  const [loading, setLoading] = React.useState<boolean>(false);
+  Router.events.on('routeChangeComplete', () => setLoading(false));
+  Router.events.on('routeChangeError', () => setLoading(false));
 
   const updateDetails = (a: Details) => setUserDetails(a);
 
@@ -76,9 +77,7 @@ const MyApp = ({
     <>
       <CssBaseline />
 
-      {routeChange && (
-        <LinearProgress color="secondary" className={classes.linearLoading} />
-      )}
+      {routeChange && <LoadingScreen loading />}
 
       <Component
         userDetails={userDetails}

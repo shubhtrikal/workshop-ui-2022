@@ -121,22 +121,22 @@ const Footer: React.FC = () => {
                 CONTACT
               </h2>
               <p>
-                <a href='tel://9140160345'>
+                <a href='tel://7770974110'>
                   <i aria-hidden='true'>
                     <FontAwesomeIcon icon={faPhone} />
                   </i>
-                  Aushotosh Bose <br />
-                  +91 9140160345
+                  Rajat Bhavsar <br />
+                  +91 7770974110
                 </a>
               </p>
               <br />
               <p>
-                <a href='tel://9617820009'>
+                <a href='tel://8800890318'>
                   <i aria-hidden='true'>
                     <FontAwesomeIcon icon={faPhone} />
                   </i>
-                  Shivam Bansal <br />
-                  +91 9617820009
+                  Neelanjan Banerjee <br />
+                  +91 8800890318
                 </a>
               </p>
             </div>

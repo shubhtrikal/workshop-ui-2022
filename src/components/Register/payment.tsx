@@ -21,7 +21,7 @@ import { seatCount } from '../../utils';
 import { Details } from '../../pages/_app';
 import { loadScript, checkPromo, saveUser } from '../../utils';
 import { useRouter } from 'next/dist/client/router';
-
+import LoadingScreen from '../loadingscreen';
 const useStyles = makeStyles((theme) => ({
   root: {
     border: 'solid,3px,black',
@@ -109,6 +109,11 @@ export default function Payment(props: props) {
       total: total,
     });
     setLoading(false);
+    if (res)
+      document.getElementById('message').innerHTML = 'Promo Code Applied';
+    else
+      document.getElementById('message').innerHTML =
+        'Error, No Such Promo Code Found';
   };
   const displayRazorpay = async (values: Details) => {
     const { name, email, phone, college } = values;
@@ -242,7 +247,7 @@ export default function Payment(props: props) {
         setLoading(false);
       });
   }, ['/register']);
-
+  if (loading) return <LoadingScreen loading />;
   return (
     <>
       <ScrollDialog

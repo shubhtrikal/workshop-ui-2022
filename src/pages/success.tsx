@@ -30,6 +30,9 @@ const useStyles = makeStyles({
     width: 'fit-content',
     margin: 'auto',
   },
+  btn: {
+    margin: '10px',
+  },
 });
 
 interface PageProps {
@@ -84,8 +87,19 @@ const Sucess: React.FC<PageProps> = ({ userDetails }) => {
               variant={'contained'}
               color={'primary'}
               onClick={() => setOpen(true)}
+              className={classes.btn}
             >
               Show Details
+            </Button>
+            <Button
+              onClick={() => {
+                router.push('/');
+              }}
+              variant={'contained'}
+              color={'primary'}
+              className={classes.btn}
+            >
+              Back
             </Button>
           </Box>
           <Invoice open={open} onClose={onClose} details={userDetails} />

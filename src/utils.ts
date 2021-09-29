@@ -16,20 +16,15 @@ export const loadScript = (src: string) => {
 export const checkPromo = async (promo: string) => {
   try {
     console.log(process.env.NEXT_PUBLIC_BACKEND);
+    console.log(promo);
 
     const res = await axios.post(
       `${process.env.NEXT_PUBLIC_BACKEND}/checkPromo`,
-      promo
+      { promo }
     );
-    if (res.data)
-      document.getElementById('message').innerHTML = 'Promo Code Applied';
-    else
-      document.getElementById('message').innerHTML =
-        'Error, No Such Promo Code Found';
+    console.log(res.data);
     return res.data;
   } catch (e) {
-    document.getElementById('message').innerHTML =
-      'Error, No Such Promo Code Found';
     return false;
   }
 };

@@ -17,6 +17,7 @@ import {
 } from '@material-ui/core';
 import { Details } from '../../pages/_app';
 import { seatCount } from '../../utils';
+import LoadingScreen from '../loadingscreen';
 const useStyles = makeStyles({
   root: {
     margin: 'auto',
@@ -69,6 +70,8 @@ export default function WorkshopTable(props: tableprops) {
         setLoading(false);
       });
   }, ['/register']);
+
+  if (loading) return <LoadingScreen loading />;
   return (
     <>
       <Grid container alignItems='center' className={classes.root}>
