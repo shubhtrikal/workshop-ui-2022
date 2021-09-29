@@ -276,8 +276,7 @@ const Invoice: React.FC<InvoiceProps> = ({ open, onClose, details }) => {
             className={classes.desc}
           >
             ** This is not any offcial recipt or invoice. These details are for
-            user convience. Read our{' '}
-            <Link onClick={() => router.push('terms')}>Terms & Conditions</Link>
+            user convience. Read our Terms & Conditions
           </DialogContentText>
         </DialogContent>
         {hide && (

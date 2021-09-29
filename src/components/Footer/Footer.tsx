@@ -14,14 +14,20 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Grid, Box, Container } from '@material-ui/core';
 import ScrollDialog from '../terms';
+import PrivacyDialog from '../privacy';
 
 const Footer: React.FC = () => {
   const [openDialog, setOpenDialog] = React.useState(false);
+  const [openPrivacy, setOpenPrivacy] = React.useState(false);
   return (
     <footer>
       <ScrollDialog
         openDialog={openDialog}
         onClose={() => setOpenDialog(false)}
+      />
+      <PrivacyDialog
+        openDialog={openPrivacy}
+        onClose={() => setOpenPrivacy(false)}
       />
       <Container maxWidth='lg'>
         <Grid
@@ -144,7 +150,7 @@ const Footer: React.FC = () => {
         </Grid>
         <Box className='footer-privacy'>
           <ul>
-            <a href='#'>
+            <a onClick={() => setOpenPrivacy(true)}>
               <li>Privacy</li>
             </a>
             <a onClick={() => setOpenDialog(true)}>
