@@ -94,7 +94,8 @@ export default function Payment(props: props) {
   const handlePromo = async (promoCode: string) => {
     setLoading(true);
     const res = await checkPromo(promoCode);
-    if (!res) setDiscount(10);
+    if (res) setDiscount(10);
+    else setDiscount(0);
     const d = Math.ceil(
       ((bill.wa1 + bill.wa2 - bill.ewa1 - bill.ewa2) * discount) / 100
     );

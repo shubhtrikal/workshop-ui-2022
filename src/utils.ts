@@ -1,8 +1,8 @@
-import axios from "axios";
-import { Details } from "./pages/_app";
+import axios from 'axios';
+import { Details } from './pages/_app';
 export const loadScript = (src: string) => {
   return new Promise((resolve) => {
-    const script = document.createElement("script");
+    const script = document.createElement('script');
     script.src = src;
     script.onload = () => {
       resolve(true);
@@ -21,12 +21,15 @@ export const checkPromo = async (promo: string) => {
       `${process.env.NEXT_PUBLIC_BACKEND}/checkPromo`,
       promo
     );
-    if (res)
-      document.getElementById("message").innerHTML = "Promo Code Applied";
-    return res;
+    if (res.data)
+      document.getElementById('message').innerHTML = 'Promo Code Applied';
+    else
+      document.getElementById('message').innerHTML =
+        'Error, No Such Promo Code Found';
+    return res.data;
   } catch (e) {
-    document.getElementById("message").innerHTML =
-      "Error, No Such Promo Code Found";
+    document.getElementById('message').innerHTML =
+      'Error, No Such Promo Code Found';
     return false;
   }
 };
@@ -47,8 +50,8 @@ export const saveUser = async (
         college: values.college,
         workshopA: values.workshopA,
         workshopB: values.workshopB,
-        earlyBirdWorkshopA: workshopAcount < 50,
-        earlyBirdWorkshopB: workshopBcount < 50,
+        earlyBirdWorkshopA: values.workshopA && workshopAcount < 50,
+        earlyBirdWorkshopB: values.workshopB && workshopBcount < 50,
         amount: amount,
         paymentId,
       },
@@ -74,7 +77,7 @@ export const seatCount = async () => {
       `${process.env.NEXT_PUBLIC_BACKEND}/count`
     );
     if (response) return response.data;
-    else throw new Error("Something Went Wrong");
+    else throw new Error('Something Went Wrong');
   } catch (e) {
     console.log(e);
   }
