@@ -13,10 +13,16 @@ import {
   faPhone,
 } from '@fortawesome/free-solid-svg-icons';
 import { Grid, Box, Container } from '@material-ui/core';
+import ScrollDialog from '../terms';
 
 const Footer: React.FC = () => {
+  const [openDialog, setOpenDialog] = React.useState(false);
   return (
     <footer>
+      <ScrollDialog
+        openDialog={openDialog}
+        onClose={() => setOpenDialog(false)}
+      />
       <Container maxWidth='lg'>
         <Grid
           container
@@ -141,7 +147,7 @@ const Footer: React.FC = () => {
             <a href='#'>
               <li>Privacy</li>
             </a>
-            <a href='#'>
+            <a onClick={() => setOpenDialog(true)}>
               <li>Terms & Conditions</li>
             </a>
           </ul>

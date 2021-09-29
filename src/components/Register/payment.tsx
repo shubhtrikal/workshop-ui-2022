@@ -16,6 +16,7 @@ import {
   Checkbox,
   Box,
 } from '@material-ui/core';
+import ScrollDialog from '../terms';
 import { seatCount } from '../../utils';
 import { Details } from '../../pages/_app';
 import { loadScript, checkPromo, saveUser } from '../../utils';
@@ -74,6 +75,7 @@ export default function Payment(props: props) {
   const router = useRouter();
   const classes = useStyles();
   const values = props.userDetails;
+  const [openDialog, setOpenDialog] = React.useState(false);
   const [promoCode, setPromocode] = React.useState<string>();
   const [discount, setDiscount] = React.useState<number>(0);
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -242,6 +244,10 @@ export default function Payment(props: props) {
 
   return (
     <>
+      <ScrollDialog
+        openDialog={openDialog}
+        onClose={() => setOpenDialog(false)}
+      />
       <Grid
         container
         justifyContent='center'
@@ -358,7 +364,7 @@ export default function Payment(props: props) {
         />{' '}
         <Typography variant='h6' component='h6'>
           {' '}
-          Accept Terms and Conditions
+          Accept <a onClick={() => setOpenDialog(true)}>Terms and Conditions</a>
         </Typography>
       </Grid>
       <Grid container className={classes.root}>
