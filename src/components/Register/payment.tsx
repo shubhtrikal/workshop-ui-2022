@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -77,9 +77,9 @@ export default function Payment(props: props) {
   const values = props.userDetails;
   const [openDialog, setOpenDialog] = React.useState(false);
   const [promoCode, setPromocode] = React.useState<string>();
-  const [discount, setDiscount] = React.useState<number>(0);
   const [loading, setLoading] = React.useState<boolean>(false);
   const [terms, setTerms] = React.useState<boolean>(false);
+  const [discount, setDiscount] = React.useState<number>(0);
   const [seats, setSeats] = React.useState({
     workshopA: 0,
     workshopB: 0,
@@ -93,11 +93,28 @@ export default function Payment(props: props) {
     d: 0,
     total: 1000,
   });
+
+  useEffect(() => {
+    const d = Math.ceil(
+      ((bill.wa1 + bill.wa2 - bill.ewa1 - bill.ewa2) * discount) / 100
+    );
+    const total = bill.wa1 + bill.wa2 - (bill.ewa1 + bill.ewa2 + d);
+    setBill({
+      ...bill,
+      d: d,
+      total: total,
+    });
+    document.getElementById('message').innerHTML = 'Promo Code Applied';
+  }, [discount]);
+
   const handlePromo = async (promoCode: string) => {
-    setLoading(true);
     const res = await checkPromo(promoCode);
-    if (res) setDiscount(10);
-    else setDiscount(0);
+
+    if (res) {
+      setDiscount(10);
+      return;
+    }
+
     const d = Math.ceil(
       ((bill.wa1 + bill.wa2 - bill.ewa1 - bill.ewa2) * discount) / 100
     );
@@ -108,12 +125,9 @@ export default function Payment(props: props) {
       d: d,
       total: total,
     });
-    setLoading(false);
-    if (res)
-      document.getElementById('message').innerHTML = 'Promo Code Applied';
-    else
-      document.getElementById('message').innerHTML =
-        'Error, No Such Promo Code Found';
+
+    document.getElementById('message').innerHTML =
+      'Error, No Such Promo Code Found';
   };
   const displayRazorpay = async (values: Details) => {
     const { name, email, phone, college } = values;
