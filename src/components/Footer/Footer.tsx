@@ -114,7 +114,9 @@ const Footer: React.FC = () => {
                 EMAIL ADDRESS
               </h2>
               <p>
-                <a href='mailto:istescmanit@gmail.com'>istescmanit@gmail.com</a>
+                <a href='mailto:flairhaven.istemanit@gmail.com'>
+                  flairhaven.istemanit@gmail.com
+                </a>
               </p>
             </div>
             <div className='contact'>
@@ -127,22 +129,22 @@ const Footer: React.FC = () => {
                 CONTACT
               </h2>
               <p>
-                <a href='tel://7770974110'>
+                <a href='tel://9469470474'>
                   <i aria-hidden='true'>
                     <FontAwesomeIcon icon={faPhone} />
                   </i>
-                  Rajat Bhavsar <br />
-                  +91 7770974110
+                  Tushar Khajuria <br />
+                  +91 9469470474
                 </a>
               </p>
               <br />
               <p>
-                <a href='tel://8800890318'>
+                <a href='tel://9993654745'>
                   <i aria-hidden='true'>
                     <FontAwesomeIcon icon={faPhone} />
                   </i>
-                  Neelanjan Banerjee <br />
-                  +91 8800890318
+                  Ananya Rawat <br />
+                  +91 9993654745
                 </a>
               </p>
             </div>

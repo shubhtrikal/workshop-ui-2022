@@ -2,6 +2,7 @@ import React from 'react';
 import { Grid, Box, TextField, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import { Details } from '../../pages/_app';
+import { useRouter } from 'next/router';
 const useStyles = makeStyles({
   box: {
     borderRadius: '10px',
@@ -43,6 +44,7 @@ interface formprops {
 }
 const RegisterForm = (props: formprops) => {
   const classes = useStyles();
+  const router = useRouter();
   const values = props.userDetails;
 
   return (
@@ -103,6 +105,15 @@ const RegisterForm = (props: formprops) => {
           />
         </Box>
         <Grid container alignItems='center' justifyContent='center'>
+          <Button
+            onClick={() => {
+              router.push('/');
+            }}
+            variant={'outlined'}
+            className={classes.btn}
+          >
+            Back
+          </Button>
           <Button
             className={classes.btn}
             type='submit'
