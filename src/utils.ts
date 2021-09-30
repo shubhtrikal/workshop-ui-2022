@@ -71,10 +71,12 @@ export const seatCount = async () => {
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_BACKEND}/count`
     );
-    if (response) return response.data;
-    else return new Error('Something Went Wrong');
+    console.log(response.data);
+    if (response.data) return response.data;
+    throw new Error('Something Went Wrong');
   } catch (e) {
-    console.log(e);
-    return new Error('Something Went Wrong');
+    // console.log(e);
+    console.log('hello');
+    throw new Error('Something Went Wrong');
   }
 };

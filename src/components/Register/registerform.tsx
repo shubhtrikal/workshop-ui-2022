@@ -3,6 +3,7 @@ import { Grid, Box, TextField, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import { Details } from '../../pages/_app';
 import { useRouter } from 'next/router';
+
 const useStyles = makeStyles({
   box: {
     borderRadius: '10px',
@@ -24,6 +25,7 @@ const useStyles = makeStyles({
     width: '400px',
     textAlign: 'center',
     height: '50px',
+    appearance: 'none',
   },
   btn: {
     margin: '10px',
@@ -49,7 +51,7 @@ const RegisterForm = (props: formprops) => {
 
   return (
     <Grid container alignItems='center' justifyContent='center'>
-      <form>
+      <form onSubmit={props.handleNext}>
         <Box className={classes.box}>
           <TextField
             variant='outlined'
@@ -83,7 +85,7 @@ const RegisterForm = (props: formprops) => {
             className={classes.textfield}
             label='Phone'
             name='phone'
-            type='text'
+            type='number'
             required
             value={values.phone}
             onChange={(event) => {
@@ -121,7 +123,6 @@ const RegisterForm = (props: formprops) => {
             disabled={
               !values.name || !values.email || !values.phone || !values.college
             }
-            onClick={props.handleNext}
           >
             Next
           </Button>
