@@ -99,7 +99,7 @@ const Sucess: React.FC<PageProps> = ({ userDetails }) => {
               color={'primary'}
               className={classes.btn}
             >
-              Back
+              Home
             </Button>
           </Box>
           <Invoice open={open} onClose={onClose} details={userDetails} />

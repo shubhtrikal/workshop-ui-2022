@@ -159,7 +159,7 @@ export default function Payment(props: props) {
       order_id: data.id,
       name: 'ISTE SC MANIT',
       description: 'Payment for workshop',
-      image: '/logo.jpeg',
+      image: '/images/iste-logo.jpeg',
       handler: function (response) {
         setLoading(true);
         saveUser(

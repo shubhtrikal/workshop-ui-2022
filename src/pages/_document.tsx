@@ -38,8 +38,8 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>Workshop</title>
-          <link rel='icon' href='/logo.jpeg' type='image/x-icon' />
+          <title>Flair Haven | ISTE SC MANIT</title>
+          <link rel='icon' href='/images/istewhite.png' type='image/x-icon' />
           <link
             rel='stylesheet'
             href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'
