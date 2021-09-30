@@ -94,24 +94,25 @@ export default function Payment(props: props) {
     total: 1000,
   });
 
-  useEffect(() => {
-    const d = Math.ceil(
-      ((bill.wa1 + bill.wa2 - bill.ewa1 - bill.ewa2) * discount) / 100
-    );
-    const total = bill.wa1 + bill.wa2 - (bill.ewa1 + bill.ewa2 + d);
-    setBill({
-      ...bill,
-      d: d,
-      total: total,
-    });
-    document.getElementById('message').innerHTML = 'Promo Code Applied';
-  }, [discount]);
+  // useEffect(() => {
+  //   const d = Math.ceil(
+  //     ((bill.wa1 + bill.wa2 - bill.ewa1 - bill.ewa2) * discount) / 100
+  //   );
+  //   const total = bill.wa1 + bill.wa2 - (bill.ewa1 + bill.ewa2 + d);
+  //   setBill({
+  //     ...bill,
+  //     d: d,
+  //     total: total,
+  //   });
+  //   document.getElementById('message').innerHTML = 'Promo Code Applied';
+  // }, [discount]);
 
   const handlePromo = async (promoCode: string) => {
     const res = await checkPromo(promoCode);
 
     if (res) {
       setDiscount(10);
+      document.getElementById('message').innerHTML = 'Promo Code Applied';
       return;
     }
 
@@ -232,35 +233,45 @@ export default function Payment(props: props) {
     const paymentObject = new _window.Razorpay(options);
     paymentObject.open();
   };
+
   React.useEffect(() => {
     setLoading(true);
     seatCount()
       .then((res) => {
         if (res) setSeats(res);
+        return res;
+
+        if (res == undefined) return new Error('something Went Wrong');
+      })
+      .then((res) => {
         const wa1 = values.workshopA ? 500 : 0;
         const wa2 = values.workshopB ? 500 : 0;
-        const ewa1 = values.workshopA && seats.workshopA < 50 ? 50 : 0;
-        const ewa2 = values.workshopB && seats.workshopB < 50 ? 50 : 0;
+        const ewa1 = values.workshopA && res.workshopA < 50 ? 50 : 0;
+        const ewa2 = values.workshopB && res.workshopB < 50 ? 50 : 0;
         const d = Math.ceil(((wa1 + wa2 - ewa1 - ewa2) * discount) / 100);
         const total = wa1 + wa2 - (ewa1 + ewa2 + d);
+        console.log(bill, 'before', ewa2);
 
         setBill({
-          wa1: wa1,
-          wa2: wa2,
-          ewa1: ewa1,
-          ewa2: ewa2,
+          wa1: values.workshopA ? 500 : 0,
+          wa2: values.workshopB ? 500 : 0,
+          ewa1: values.workshopA && res.workshopA < 50 ? 50 : 0,
+          ewa2: values.workshopB && res.workshopB < 50 ? 50 : 0,
           d: d,
           total: total,
         });
+        console.log(bill, 'after');
       })
       .catch((e) => {
         alert('Error , Please Try Again');
+        router.push('/');
         console.log(e);
       })
       .finally(() => {
         setLoading(false);
+        console.log(bill, seats, 'finally');
       });
-  }, ['/register']);
+  }, ['/register', discount]);
   if (loading) return <LoadingScreen loading />;
   return (
     <>
@@ -317,7 +328,7 @@ export default function Payment(props: props) {
               <TableCell align='center'>Date</TableCell>
               <TableCell align='center'>Seats Left</TableCell>
               <TableCell align='center'>Price</TableCell>
-              <TableCell align='center'>Discount</TableCell>
+              <TableCell align='center'>Early Bird Discount</TableCell>
               <TableCell align='center'>Total</TableCell>
             </TableRow>
           </TableHead>
@@ -361,7 +372,7 @@ export default function Payment(props: props) {
             </TableRow> */}
             <TableRow>
               <TableCell colSpan={5} align='right'>
-                Discount
+                Promo Code Discount
               </TableCell>
               <TableCell align='center'>Rs {bill.d}</TableCell>
             </TableRow>

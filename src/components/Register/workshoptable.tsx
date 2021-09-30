@@ -18,6 +18,7 @@ import {
 import { Details } from '../../pages/_app';
 import { seatCount } from '../../utils';
 import LoadingScreen from '../loadingscreen';
+import { useRouter } from 'next/router';
 const useStyles = makeStyles({
   root: {
     margin: 'auto',
@@ -48,6 +49,7 @@ interface tableprops {
   handleBack: () => void;
 }
 export default function WorkshopTable(props: tableprops) {
+  const router = useRouter();
   const classes = useStyles();
   const values = props.userDetails;
   const [loading, setLoading] = React.useState<boolean>(false);
@@ -61,9 +63,16 @@ export default function WorkshopTable(props: tableprops) {
     setLoading(true);
     seatCount()
       .then((res) => {
+        console.log(res);
+        if (!res) {
+          alert('Something Went Wrong');
+          router.push('/');
+        }
         if (res) setSeats(res);
       })
       .catch((e) => {
+        alert('Something Went Wrong');
+        router.push('/');
         console.log(e);
       })
       .finally(() => {

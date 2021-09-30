@@ -72,8 +72,9 @@ export const seatCount = async () => {
       `${process.env.NEXT_PUBLIC_BACKEND}/count`
     );
     if (response) return response.data;
-    else throw new Error('Something Went Wrong');
+    else return new Error('Something Went Wrong');
   } catch (e) {
     console.log(e);
+    return new Error('Something Went Wrong');
   }
 };
