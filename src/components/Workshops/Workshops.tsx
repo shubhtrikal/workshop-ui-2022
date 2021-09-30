@@ -48,7 +48,7 @@ const Workshops: React.FC<workshopProps> = ({
                 </a>
               </div>
             </Hidden>
-            <a href='/#' className='btn btn-two btn-hover'>
+            <a href='/register' className='btn btn-two btn-hover'>
               Book Seat
             </a>
           </div>

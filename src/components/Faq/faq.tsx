@@ -30,26 +30,45 @@ const FaqComponent: React.FC = () => {
   const questionsAnswers = [
     {
       question: `What is Version Beta exactly?`,
-      answer: `Version Beta is a technical conclave comprising of the following events : 
-                A series of technical workshops , 
-                Cognition- A series of seminars ,
-                Central India’s Largest Students’ held Hackathon`,
+      answer: `Version Beta is Central India's largest Hackathon held annually with mass participation from all over the nation. Illuminative technical workshops are conducted before the 36-hour coding ride.`,
     },
     {
-      question: `Which workshops in Version Beta will be conducted for coding enthusiasts ?`,
-      answer: `Under Version Beta, workshops on Data Science and Data Structures & Algorithms will be conducted. The workshops will be mentored by Prateek Narang from Coding Blocks.`,
+      question: `What is Flair Haven?`,
+      answer: `Flair Haven is a series of workshops organized by ISTE SC MANIT as a part of its annual technical conclave Version Beta. It's an opportunity to learn technical skills from inspiring mentors having years of expertise.`,
     },
     {
-      question: `What would be the implications of the projects we would be building?`,
-      answer: `So the live projects you would build can be used as minor or even major projects in your college. You can mention them in your CV to enhance it which may help you in landing an internship or a job!`,
+      question: `What are the domains for the workshops?`,
+      answer: `  Android App Development using Android Studio and Machine Learning. `,
     },
     {
-      question: `Do I need to have any previous knowledge to register for these workshops?`,
-      answer: `No. You just need to have a passion for learning. Every other prerequisite material will be provided to you 15 days before the workshops through telegram groups. You just have to go through them and you're good to go.`,
+      question: `Duration of the workshop?`,
+      answer: `The time duration per workshop is 6 to 8 hours over two days.`,
     },
     {
-      question: `If I attend the workshops and perform well, would there be any bonus prize for me?`,
-      answer: `Yes. Your efforts will not go unnoticed. There would be goodies like T-shirts, bags, stickers and other exciting prizes for the best performing students in the workshops. Moreover, if you perform exceptionally good, you also stand a chance to get a free copy of " Mastering competitive programming " by Coding Blocks!`,
+      question: `Dates for the workshop?`,
+      answer: `Workshop on Android App Development using Android Studio is on the 16th and 17th of October’ 2021. The Machine Learning workshop is on the 19th and 20th of October’ 2021.`,
+    },
+    {
+      question: `Are there any prerequisites for the workshop?`,
+      answer: `The prerequisites, if any, will be provided before the workshop.`,
+    },
+    {
+      question: `What will be the platform for the workshops?`,
+      answer: `The workshop will take place on Zoom.`,
+    },
+    {
+      question: `What are the exciting points about the workshop?`,
+      answer: `The workshops will conclude with a suitable CV-ready project for students.          
+              Solving real-time doubts and queries of the participants.
+              10% discount on all the two-month courses and internship programs from Tech Cryptors Pvt. Ltd. for all the participants of Version Beta 4.0.`,
+    },
+    {
+      question: `Who can participate?`,
+      answer: `Regardless of the experience, anyone can attend the workshop. It would be a golden opportunity to learn new skills and gain exposure in the Tech world.`,
+    },
+    {
+      question: `How to register for Flair Haven? `,
+      answer: `You can head over to Register Now and grab your seat`,
     },
   ];
 
