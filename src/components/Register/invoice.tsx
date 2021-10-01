@@ -19,7 +19,6 @@ import {
   TableCell,
   TableBody,
   ListItemText,
-  Link,
 } from '@material-ui/core';
 import { Details } from '../../pages/_app';
 import { useRouter } from 'next/router';
@@ -116,6 +115,8 @@ const Invoice: React.FC<InvoiceProps> = ({ open, onClose, details }) => {
       setHide(true);
     }
   }, [hide]);
+
+  const totalPrice = details.workshopA && details.workshopB ? 1000 : 500;
 
   return (
     <div>
@@ -227,41 +228,46 @@ const Invoice: React.FC<InvoiceProps> = ({ open, onClose, details }) => {
                   <TableRow key={1}>
                     <TableCell>
                       <ListItemText
-                        primary={'WorkshopA'}
+                        primary={'Android App Development'}
                         primaryTypographyProps={{ variant: 'body2' }}
                         secondary={
-                          'Best oppurtunity for all python enthusiasts'
+                          'Engrossing Workshop on Android App Development using Android Studio'
                         }
                       />
                     </TableCell>
-                    <TableCell>{'12-13 Oct 2020'}</TableCell>
+                    <TableCell>{'16-17 Oct 2021'}</TableCell>
                     <TableCell>{'Online Platform'}</TableCell>
-                    <TableCell>{'₹ 600'}</TableCell>
+                    <TableCell>{'₹ 500'}</TableCell>
                   </TableRow>
                 )}
                 {details.workshopB && (
                   <TableRow key={1}>
                     <TableCell>
                       <ListItemText
-                        primary={'WorkShop B'}
+                        primary={'Machine Learning'}
                         primaryTypographyProps={{ variant: 'body2' }}
-                        secondary={'Best oppurtunity for all job-freaks'}
+                        secondary={'Immersive Workshop on Machine Learning'}
                       />
                     </TableCell>
-                    <TableCell>{'17-18 Oct 2020'}</TableCell>
+                    <TableCell>{'19-20 Oct 2021'}</TableCell>
                     <TableCell>{'Online Platform'}</TableCell>
-                    <TableCell>{'₹ 600'}</TableCell>
+                    <TableCell>{'₹ 500'}</TableCell>
                   </TableRow>
                 )}
 
                 <TableRow>
                   <TableCell rowSpan={3} />
-                  <TableCell colSpan={2}>Subtotal</TableCell>
-                  <TableCell>-</TableCell>
+                  <TableCell colSpan={2}>Early Bird Discount</TableCell>
+                  <TableCell>
+                    ₹{' '}
+                    {totalPrice -
+                      parseInt(details.amount) -
+                      parseInt(details.discountValue)}
+                  </TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell colSpan={1}>Discount</TableCell>
-                  <TableCell>{details.discountPercentage}</TableCell>
+                  <TableCell colSpan={1}>Promocode Discount</TableCell>
+                  <TableCell>{details.discountPercentage + '%'}</TableCell>
                   <TableCell> ₹ {details.discountValue}</TableCell>
                 </TableRow>
                 <TableRow>
@@ -276,7 +282,8 @@ const Invoice: React.FC<InvoiceProps> = ({ open, onClose, details }) => {
             className={classes.desc}
           >
             ** This is not any offcial recipt or invoice. These details are for
-            user convience. Read our Terms & Conditions
+            user convience. Check your email for the confirmation and details of
+            the registration. Read our Terms & Conditions.
           </DialogContentText>
         </DialogContent>
         {hide && (
