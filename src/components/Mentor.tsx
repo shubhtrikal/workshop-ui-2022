@@ -14,30 +14,33 @@ const Mentor = () => {
           <Box className='mentor-box'>
             <Box className='mentor-img'>
               <Avatar
-                src='images/iste.svg'
+                src='images/mentor-img.jpeg'
                 alt='mentor-img'
                 style={{ height: '140px', width: '140px' }}
               />
             </Box>
             <Box className='mentor-heading'>
-              <h2>Prateek Narang</h2>
-              <h4>Founder & CEO Coding Blocks Ltd.</h4>
+              <h2>Yadnesh Mohan Zagade</h2>
+              <h4>C.E.O. & Founder – Tech Cryptors</h4>
             </Box>
             <Box className='mentor-details'>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-                neque rem quas quod quisquam tempora hic amet expedita
-                voluptatum similique eum quis aliquam sequi, distinctio ea harum
-                fugiat atque cumque. Fugiat explicabo veniam id aperiam magni
-                nihil saepe cupiditate doloremque ullam quos natus quasi sit
-                vitae ex, enim quae laboriosam! Lorem ipsum dolor sit amet
-                consectetur adipisicing elit. Aperiam voluptas, laborum nihil
-                esse nobis voluptatum, rerum consequatur asperiores, excepturi
-                reiciendis iusto maxime libero velit atque minus quis autem
-                repudiandae. Sequi, quia. Illo rerum recusandae facere dolores
-                aut, quo asperiores incidunt fuga numquam exercitationem optio
-                tempora eveniet voluptatem! Omnis reiciendis laboriosam facilis,
-                doloribus dicta cumque sequi impedit provident laudantium.
+                We are elated to introduce Mr. Yadnesh Mohan Zagade, C.E.O. and
+                Founder of Tech Cryptors as the mentor for Flair Haven this
+                year. He has been a research and development enthusiast since
+                2014 and has marvellously worked on different technologies and
+                trending software like Android Studio, PyCharm, MATLAB, Proteus
+                to name a few. His victories in developing various high-end
+                products are awe-inspiring. Conducting a vast number of
+                workshops, seminars, internship courses etc. and training
+                thousands of students from highly revered engineering colleges
+                like IITs & NITs, Mr. Yadnesh has been greatly influential all
+                across India and deservingly is a member of Departmental
+                Advisory Boards (DAB) of many renowned colleges. His mastery and
+                passion for coding are, for sure, motivation and a source of
+                knowledge to everyone. Our mentor and we are more than excited
+                to meet the keen set of mentees and we look forward to a
+                fruitful and knowledgeable time.
               </p>
             </Box>
           </Box>
