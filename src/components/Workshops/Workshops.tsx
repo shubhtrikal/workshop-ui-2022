@@ -1,12 +1,13 @@
 import { Container, Grid, Hidden, Typography } from '@material-ui/core';
 import React from 'react';
-
+import Points from './points';
 interface workshopProps {
   title: string;
   tag: string;
   date: string;
   about: string;
   description: string;
+  points: string[];
 }
 
 const Workshops: React.FC<workshopProps> = ({
@@ -15,6 +16,7 @@ const Workshops: React.FC<workshopProps> = ({
   date,
   about,
   description,
+  points,
 }) => {
   return (
     <div className='workshop-div'>
@@ -57,6 +59,7 @@ const Workshops: React.FC<workshopProps> = ({
           <div className='workshop-about'>
             <h2>About Workshop</h2>
             <p>{about}</p>
+            {/* <Points points={points} /> */}
           </div>
         </Grid>
       </Grid>
@@ -81,17 +84,14 @@ const Workshops: React.FC<workshopProps> = ({
               well as english languages.
             </li>
             <li>
-              <span>Master Class:</span> Learn from Expert.
-            </li>
-            <li>
               <span>Perks and Benefits:</span> Certificates to all candidates
               and goodies for good performers in workshop.
             </li>
             <li>
-              <span>Mentor:</span> Mr. Prateek Narang
+              <span>Mentor:</span> Mr. Yadnesh Mohan Zagade
             </li>
             <li>
-              <span>Price:</span> 900 $
+              <span>Price:</span> ₹ 500
             </li>
           </ul>
         </Grid>

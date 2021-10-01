@@ -105,17 +105,19 @@ export default function WorkshopTable(props: tableprops) {
               <TableRow>
                 <TableCell align='left'>1</TableCell>
                 <TableCell align='center'>
-                  <Typography component='h6'>Finance</Typography>
+                  <Typography component='h6'>
+                    Android App Development
+                  </Typography>
                   <Typography component='p' variant='inherit'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Dolor, ipsam?
+                    Engrossing Workshop on Android App Development using Android
+                    Studio
                   </Typography>
                 </TableCell>
-                <TableCell align='center'>15-Oct-2021</TableCell>
+                <TableCell align='center'>16-17 October 2021</TableCell>
                 <TableCell align='center'>{`${
                   200 - seats.workshopA
                 }/200`}</TableCell>
-                <TableCell align='center'>Rs 500</TableCell>
+                <TableCell align='center'>₹ 500</TableCell>
                 <TableCell align='center'>
                   <Checkbox
                     checked={values.workshopA}
@@ -132,17 +134,16 @@ export default function WorkshopTable(props: tableprops) {
               <TableRow>
                 <TableCell align='left'>2</TableCell>
                 <TableCell align='center'>
-                  <Typography component='h6'>Data Science</Typography>
+                  <Typography component='h6'>Machine Learning</Typography>
                   <Typography component='p' variant='inherit'>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Dolor, ipsam?
+                    Immersive Workshop on Machine Learning
                   </Typography>
                 </TableCell>
-                <TableCell align='center'>17-Oct-2021</TableCell>
+                <TableCell align='center'> 19-20 October 2021</TableCell>
                 <TableCell align='center'>
                   {`${200 - seats.workshopB}/200`}
                 </TableCell>
-                <TableCell align='center'>Rs 500</TableCell>
+                <TableCell align='center'> ₹ 500</TableCell>
                 <TableCell align='center'>
                   <Checkbox
                     checked={values.workshopB}

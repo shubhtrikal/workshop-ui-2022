@@ -13,7 +13,7 @@ const LandingPage: React.FC = () => {
           <h2>
             FLAIR <span>HAVEN</span>
           </h2>
-          <h6>October 18 - October 19, 2021</h6>
+          <h6>October 16 - October 20, 2021</h6>
           <a className='btn btn_hover' href='/register'>
             Register Now
           </a>

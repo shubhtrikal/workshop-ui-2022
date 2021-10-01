@@ -350,30 +350,32 @@ export default function Payment(props: props) {
               <TableRow>
                 <TableCell align='left'>1</TableCell>
                 <TableCell align='center'>
-                  <Typography component='h6'>Finance</Typography>
+                  <Typography component='h6'>
+                    Android App Development
+                  </Typography>
                 </TableCell>
-                <TableCell align='center'>15-Oct-2021</TableCell>
+                <TableCell align='center'>16-17 October 2021</TableCell>
                 <TableCell align='center'>{`${
                   200 - seats.workshopA
                 }/200`}</TableCell>
-                <TableCell align='center'>Rs {bill.wa1}</TableCell>
-                <TableCell align='center'>Rs {bill.ewa1}</TableCell>
-                <TableCell align='center'>Rs {bill.wa1 - bill.ewa1}</TableCell>
+                <TableCell align='center'>₹ {bill.wa1}</TableCell>
+                <TableCell align='center'>₹ {bill.ewa1}</TableCell>
+                <TableCell align='center'>₹ {bill.wa1 - bill.ewa1}</TableCell>
               </TableRow>
             )}
             {values.workshopB && (
               <TableRow>
                 <TableCell align='left'>{values.workshopA ? 2 : 1}</TableCell>
                 <TableCell align='center'>
-                  <Typography component='h6'>Data Science</Typography>
+                  <Typography component='h6'>Machine Learning</Typography>
                 </TableCell>
-                <TableCell align='center'>17-Oct-2021</TableCell>
+                <TableCell align='center'>19-20 October 2021</TableCell>
                 <TableCell align='center'>{`${
                   200 - seats.workshopB
                 }/200`}</TableCell>
-                <TableCell align='center'>Rs {bill.wa2}</TableCell>
-                <TableCell align='center'>Rs {bill.ewa2}</TableCell>
-                <TableCell align='center'>Rs {bill.wa2 - bill.ewa2}</TableCell>
+                <TableCell align='center'>₹ {bill.wa2}</TableCell>
+                <TableCell align='center'>₹ {bill.ewa2}</TableCell>
+                <TableCell align='center'>₹ {bill.wa2 - bill.ewa2}</TableCell>
               </TableRow>
             )}
             {/* <TableRow>
@@ -385,16 +387,19 @@ export default function Payment(props: props) {
             </TableRow> */}
             <TableRow>
               <TableCell colSpan={5} align='right'>
-                Promo Code Discount
+                <b>Promo Code Discount</b>
               </TableCell>
-              <TableCell align='center'>Rs {bill.d}</TableCell>
+              <TableCell />
+              <TableCell align='center'>- ₹ {bill.d}</TableCell>
             </TableRow>
             <TableRow>
               <TableCell colSpan={5} align='right'>
-                Total
+                <b>Total</b>
               </TableCell>
               <TableCell />
-              <TableCell align='center'>Rs {bill.total}</TableCell>
+              <TableCell align='center'>
+                <b> ₹ {bill.total}</b>
+              </TableCell>
             </TableRow>
           </TableBody>
           <TableFooter></TableFooter>
@@ -405,10 +410,15 @@ export default function Payment(props: props) {
           onChange={() => {
             setTerms(!terms);
           }}
+          color='primary'
         />{' '}
-        <Typography variant='h6' component='h6'>
+        <Typography variant='h6' component='p'>
           {' '}
-          Accept <a onClick={() => setOpenDialog(true)}>Terms and Conditions</a>
+          I Accept all{' '}
+          <a onClick={() => setOpenDialog(true)} style={{ color: '#2E5984' }}>
+            Terms and Conditions
+          </a>{' '}
+          of ISTE-SC MANIT
         </Typography>
       </Grid>
       <Grid container className={classes.root}>
