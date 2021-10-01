@@ -109,8 +109,8 @@ export default function Payment(props: props) {
   // }, [discount]);
 
   const handlePromo = async (promoCode: string) => {
+    promoCode = promoCode.trim();
     const res = await checkPromo(promoCode);
-
     if (
       res &&
       promoCode === `COMBO10` &&
