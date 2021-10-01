@@ -76,10 +76,11 @@ export default function Payment(props: props) {
   const classes = useStyles();
   const values = props.userDetails;
   const [openDialog, setOpenDialog] = React.useState(false);
-  const [promoCode, setPromocode] = React.useState<string>();
+  const [promoCode, setPromocode] = React.useState<string>('');
   const [loading, setLoading] = React.useState<boolean>(false);
   const [terms, setTerms] = React.useState<boolean>(false);
   const [discount, setDiscount] = React.useState<number>(0);
+  const [message, setMessage] = React.useState<string>('');
   const [seats, setSeats] = React.useState({
     workshopA: 0,
     workshopB: 0,
@@ -110,9 +111,20 @@ export default function Payment(props: props) {
   const handlePromo = async (promoCode: string) => {
     const res = await checkPromo(promoCode);
 
-    if (res) {
+    if (
+      res &&
+      promoCode === `COMBO10` &&
+      values.workshopA &&
+      values.workshopB
+    ) {
+      setMessage('Promo Code Applied');
       setDiscount(10);
-      document.getElementById('message').innerHTML = 'Promo Code Applied';
+      return;
+    }
+
+    if (res && promoCode !== `COMBO10`) {
+      setMessage('Promo Code Applied');
+      setDiscount(10);
       return;
     }
 
@@ -126,9 +138,11 @@ export default function Payment(props: props) {
       d: d,
       total: total,
     });
-
-    document.getElementById('message').innerHTML =
-      'Error, No Such Promo Code Found';
+    if (promoCode === `COMBO10`)
+      setMessage(
+        'This Promo Code is applicable only when you select both workshop'
+      );
+    else setMessage('No Such Promo Code Found');
   };
   const displayRazorpay = async (values: Details) => {
     const { name, email, phone, college } = values;
@@ -311,10 +325,9 @@ export default function Payment(props: props) {
         </Grid>
         <Grid container item lg={12} alignItems='flex-start'>
           <Box ml={1} mt={1}>
-            <p
-              style={{ marginRight: '10px', textAlign: 'right' }}
-              id='message'
-            ></p>
+            <p style={{ marginRight: '10px', textAlign: 'left' }} id='message'>
+              {message}
+            </p>
           </Box>
         </Grid>
       </Grid>
