@@ -167,7 +167,7 @@ const Invoice: React.FC<InvoiceProps> = ({ open, onClose, details }) => {
                     color='textSecondary'
                     variant='body2'
                   >
-                    college
+                    college :
                   </Typography>
                 </Box>
                 &nbsp; {details.college}
@@ -179,7 +179,7 @@ const Invoice: React.FC<InvoiceProps> = ({ open, onClose, details }) => {
                     color='textSecondary'
                     variant='body2'
                   >
-                    Phone
+                    Phone :
                   </Typography>
                 </Box>
                 &nbsp; {details.phone}

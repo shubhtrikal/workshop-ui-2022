@@ -59,7 +59,6 @@ const Workshops: React.FC<workshopProps> = ({
           <div className='workshop-about'>
             <h2>About Workshop</h2>
             <p>{about}</p>
-            {/* <Points points={points} /> */}
           </div>
         </Grid>
       </Grid>
@@ -76,8 +75,9 @@ const Workshops: React.FC<workshopProps> = ({
               <span>Digital Event:</span> Watch it online!
             </li>
             <li>
-              <span>Prerequisite: </span> We will send you all prerequisite
-              material on telegram on Mobile number you have registered with.
+              <span>Prerequisite: </span> Remember that the sole prerequisite
+              for attending the Workshop is "enthu"! Apart from that, the mentor
+              will instruct from the roots up.
             </li>
             <li>
               <span>Languages:</span> Our mentors will explain in both hindi as
@@ -100,6 +100,10 @@ const Workshops: React.FC<workshopProps> = ({
             <div className='desc-content-desk'>
               <h2>Why {title} ?</h2>
               <p>{description}</p>
+            </div>
+
+            <div className='desc-content-desk'>
+              <Points points={points} />
             </div>
           </Hidden>
         </Grid>
