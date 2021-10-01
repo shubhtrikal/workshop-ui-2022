@@ -115,8 +115,8 @@ export default function WorkshopTable(props: tableprops) {
                 </TableCell>
                 <TableCell align='center'>16-17 October 2021</TableCell>
                 <TableCell align='center'>{`${
-                  200 - seats.workshopA
-                }/200`}</TableCell>
+                  250 - seats.workshopA
+                }/250`}</TableCell>
                 <TableCell align='center'>₹ 500</TableCell>
                 <TableCell align='center'>
                   <Checkbox
@@ -141,7 +141,7 @@ export default function WorkshopTable(props: tableprops) {
                 </TableCell>
                 <TableCell align='center'> 19-20 October 2021</TableCell>
                 <TableCell align='center'>
-                  {`${200 - seats.workshopB}/200`}
+                  {`${250 - seats.workshopB}/250`}
                 </TableCell>
                 <TableCell align='center'> ₹ 500</TableCell>
                 <TableCell align='center'>

@@ -356,8 +356,8 @@ export default function Payment(props: props) {
                 </TableCell>
                 <TableCell align='center'>16-17 October 2021</TableCell>
                 <TableCell align='center'>{`${
-                  200 - seats.workshopA
-                }/200`}</TableCell>
+                  250 - seats.workshopA
+                }/250`}</TableCell>
                 <TableCell align='center'>₹ {bill.wa1}</TableCell>
                 <TableCell align='center'>₹ {bill.ewa1}</TableCell>
                 <TableCell align='center'>₹ {bill.wa1 - bill.ewa1}</TableCell>
@@ -371,8 +371,8 @@ export default function Payment(props: props) {
                 </TableCell>
                 <TableCell align='center'>19-20 October 2021</TableCell>
                 <TableCell align='center'>{`${
-                  200 - seats.workshopB
-                }/200`}</TableCell>
+                  250 - seats.workshopB
+                }/250`}</TableCell>
                 <TableCell align='center'>₹ {bill.wa2}</TableCell>
                 <TableCell align='center'>₹ {bill.ewa2}</TableCell>
                 <TableCell align='center'>₹ {bill.wa2 - bill.ewa2}</TableCell>

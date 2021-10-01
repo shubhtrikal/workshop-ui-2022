@@ -6,13 +6,23 @@ const LandingPage: React.FC = () => {
       <div className='landing-bg'></div>
       <div>
         <div className='landing-content'>
-          <h4>ISTE SC MANIT</h4>
+          <div className='hero-sponsors'>
+            <img src='images/istewhite.png' alt='iste' width='100px' />
+            <h1 style={{ margin: '0 20px', color: 'white' }}>&</h1>
+            <img src='images/circle.png' alt='title-sponsor' width='100px' />
+          </div>
           <h4>
-            <span>Presents</span>
+            <span>Present</span>
           </h4>
           <h2>
             FLAIR <span>HAVEN</span>
           </h2>
+
+          {/* <img
+            src='images/techcrypters.png'
+            alt='title-sponsor'
+            width='150px'
+          /> */}
           <h6>October 16 - October 20, 2021</h6>
           <a className='btn btn_hover' href='/register'>
             Register Now
