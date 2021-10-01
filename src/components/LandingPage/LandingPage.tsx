@@ -1,3 +1,4 @@
+import { fontSize } from '@mui/system';
 import React from 'react';
 
 const LandingPage: React.FC = () => {
@@ -7,22 +8,22 @@ const LandingPage: React.FC = () => {
       <div>
         <div className='landing-content'>
           <div className='hero-sponsors'>
-            <img src='images/istewhite.png' alt='iste' width='100px' />
-            <h1 style={{ margin: '0 20px', color: 'white' }}>&</h1>
-            <img src='images/circle.png' alt='title-sponsor' width='100px' />
+            <a href='https://istemanit.in/' target='_blank'>
+              <img src='images/istewhite.png' alt='iste' width='100px' />
+            </a>
+            <h1 style={{ margin: '0 20px', color: 'white', fontSize: '32px' }}>
+              &
+            </h1>
+            <a href='https://techcryptors.com/' target='_blank'>
+              <img src='images/circle.png' alt='title-sponsor' width='100px' />
+            </a>
           </div>
           <h4>
-            <span>Present</span>
+            <span style={{ fontSize: '20px' }}>Present</span>
           </h4>
           <h2>
             FLAIR <span>HAVEN</span>
           </h2>
-
-          {/* <img
-            src='images/techcrypters.png'
-            alt='title-sponsor'
-            width='150px'
-          /> */}
           <h6>October 16 - October 20, 2021</h6>
           <a className='btn btn_hover' href='/register'>
             Register Now
