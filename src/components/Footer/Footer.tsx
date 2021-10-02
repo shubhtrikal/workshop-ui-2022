@@ -39,7 +39,9 @@ const Footer: React.FC = () => {
         >
           <Grid item xs={12} sm={6} md={4} className='footerLeft'>
             <div className='logo'>
-              <img src='images/iste-white.svg' alt='iste-logo' />
+              <a href='https://istemanit.in/' target='_blank'>
+                <img src='images/iste-white.svg' alt='iste-logo' />
+              </a>
             </div>
             <div className='social-icon'>
               <div className='icon'>
