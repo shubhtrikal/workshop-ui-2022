@@ -12,11 +12,14 @@ import { withStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   body: {
+    fontFamily: 'Nunito',
     height: '100vh',
     textAlign: 'justify',
   },
 
   title: {
+    fontFamily: 'Nunito',
+    fontWeight: 600,
     textAlign: 'center',
     marginTop: theme.spacing(2),
   },
@@ -52,7 +55,6 @@ const ScrollDialog: React.FC<Props> = ({ openDialog, onClose }) => {
         aria-labelledby='scroll-dialog-title'
         aria-describedby='scroll-dialog-description'
       >
-        <DialogTitle id='scroll-dialog-title'>Terms and Conditions</DialogTitle>
         <DialogContent dividers={scroll === 'paper'}>
           <DialogContentText className={classes.body}>
             <Typography variant='h6' className={classes.title}>

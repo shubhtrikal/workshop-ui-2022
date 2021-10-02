@@ -8,15 +8,18 @@ import { Link, Typography } from '@material-ui/core';
 
 import Button from '@material-ui/core/Button';
 
-import { withStyles, makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   body: {
+    fontFamily: 'Nunito',
     height: '100vh',
     textAlign: 'justify',
   },
 
   title: {
+    fontFamily: 'Nunito',
+    fontWeight: 600,
     textAlign: 'center',
     marginTop: theme.spacing(2),
   },
@@ -52,7 +55,7 @@ const PrivacyDialog: React.FC<Props> = ({ openDialog, onClose }) => {
         aria-labelledby='scroll-dialog-title'
         aria-describedby='scroll-dialog-description'
       >
-        <DialogTitle id='scroll-dialog-title'>PRIVACY POLICY</DialogTitle>
+        {/* <DialogTitle id='scroll-dialog-title'>PRIVACY POLICY</DialogTitle> */}
         <DialogContent dividers={scroll === 'paper'}>
           <DialogContentText className={classes.body}>
             <Typography variant='h6' className={classes.title}>
