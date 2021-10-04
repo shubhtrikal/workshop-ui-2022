@@ -3,6 +3,7 @@ import React from 'react';
 import Points from './points';
 interface workshopProps {
   title: string;
+  image: string;
   tag: string;
   date: string;
   about: string;
@@ -12,6 +13,7 @@ interface workshopProps {
 
 const Workshops: React.FC<workshopProps> = ({
   title,
+  image,
   tag,
   date,
   about,
@@ -21,7 +23,7 @@ const Workshops: React.FC<workshopProps> = ({
   return (
     <div className='workshop-div'>
       <div className='workshop-img'>
-        <img src='images/workshop.png' alt='image' />
+        <img src={image} alt={title} />
       </div>
       <Grid
         container
