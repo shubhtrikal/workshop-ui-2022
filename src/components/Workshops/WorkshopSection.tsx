@@ -3,6 +3,7 @@ import React from 'react';
 import Workshops from './Workshops';
 
 const title1 = 'Android App Development';
+const image1 = 'images/android.jpeg';
 const tag1 = 'Workshop';
 const date1 = 'October 16-17, 2021';
 const about1 =
@@ -17,6 +18,7 @@ const point1 = [
   ' Practical learning sessions to give you hands-on experience.',
 ];
 const title2 = 'Machine Learning';
+const image2 = 'images/ml.jpg';
 const tag2 = 'Workshop';
 const date2 = 'October 19-20, 2021';
 const about2 =
@@ -42,6 +44,7 @@ const workshopSection = () => {
         </div>
         <Workshops
           title={title1}
+          image={image1}
           tag={tag1}
           date={date1}
           about={about1}
@@ -50,6 +53,7 @@ const workshopSection = () => {
         />
         <Workshops
           title={title2}
+          image={image2}
           tag={tag2}
           date={date2}
           about={about2}
