@@ -108,23 +108,27 @@ export default function Payment(props: props) {
   //   document.getElementById('message').innerHTML = 'Promo Code Applied';
   // }, [discount]);
 
+  interface PromoRes {
+    valid: boolean;
+    discount: number;
+  }
   const handlePromo = async (promoCode: string) => {
     promoCode = promoCode.trim();
-    const res = await checkPromo(promoCode);
+    const res: PromoRes = await checkPromo(promoCode);
     if (
-      res &&
+      res.valid &&
       promoCode === `COMBO10` &&
       values.workshopA &&
       values.workshopB
     ) {
       setMessage('Promo Code Applied');
-      setDiscount(10);
+      setDiscount(res.discount);
       return;
     }
 
-    if (res && promoCode !== `COMBO10`) {
+    if (res.valid && promoCode !== `COMBO10`) {
       setMessage('Promo Code Applied');
-      setDiscount(10);
+      setDiscount(res.discount);
       return;
     }
 
@@ -142,7 +146,10 @@ export default function Payment(props: props) {
       setMessage(
         'This Promo Code is applicable only when you select both workshop'
       );
-    else setMessage('No Such Promo Code Found');
+    else {
+      setDiscount(0);
+      setMessage('No Such Promo Code Found');
+    }
   };
   const displayRazorpay = async (values: Details) => {
     const { name, email, phone, college } = values;
