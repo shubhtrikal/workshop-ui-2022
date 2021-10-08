@@ -63,7 +63,7 @@ export default function WorkshopTable(props: tableprops) {
     setLoading(true);
     seatCount()
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (!res) {
           alert('Something Went Wrong');
           router.push('/');
@@ -73,7 +73,7 @@ export default function WorkshopTable(props: tableprops) {
       .catch((e) => {
         alert('Something Went Wrong');
         router.push('/');
-        console.log(e);
+        // console.log(e);
       })
       .finally(() => {
         setLoading(false);

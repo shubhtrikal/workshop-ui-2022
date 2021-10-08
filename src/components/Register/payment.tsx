@@ -127,6 +127,10 @@ export default function Payment(props: props) {
     }
 
     if (res.valid && promoCode !== `COMBO10`) {
+      if (promoCode === 'MANIT20')
+        alert(
+          'In case you are using a code generated for MANIT students, your status as a MANITian would be verified. In case of discrepancy, the refund would not be generated and would lead to cancellation of the registration for Flair Haven.'
+        );
       setMessage('Promo Code Applied');
       setDiscount(res.discount);
       return;
@@ -271,7 +275,7 @@ export default function Payment(props: props) {
         const ewa2 = values.workshopB && res.workshopB < 50 ? 50 : 0;
         const d = Math.ceil(((wa1 + wa2 - ewa1 - ewa2) * discount) / 100);
         const total = wa1 + wa2 - (ewa1 + ewa2 + d);
-        console.log(bill, 'before', ewa2);
+        // console.log(bill, 'before', ewa2);
 
         setBill({
           wa1: values.workshopA ? 500 : 0,
@@ -281,16 +285,16 @@ export default function Payment(props: props) {
           d: d,
           total: total,
         });
-        console.log(bill, 'after');
+        // console.log(bill, 'after');
       })
       .catch((e) => {
         alert('Error , Please Try Again');
         router.push('/');
-        console.log(e);
+        // console.log(e);
       })
       .finally(() => {
         setLoading(false);
-        console.log(bill, seats, 'finally');
+        // console.log(bill, seats, 'finally');
       });
   }, ['/register', discount]);
   if (loading) return <LoadingScreen loading />;

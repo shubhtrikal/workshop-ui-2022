@@ -15,14 +15,14 @@ export const loadScript = (src: string) => {
 };
 export const checkPromo = async (promo: string) => {
   try {
-    console.log(process.env.NEXT_PUBLIC_BACKEND);
-    console.log(promo);
+    // console.log(process.env.NEXT_PUBLIC_BACKEND);
+    // console.log(promo);
 
     const res = await axios.post(
       `${process.env.NEXT_PUBLIC_BACKEND}/checkPromo`,
       { promo }
     );
-    console.log(res.data);
+    // console.log(res.data);
     return res.data;
   } catch (e) {
     return false;
@@ -71,12 +71,12 @@ export const seatCount = async () => {
     const response = await axios.get(
       `${process.env.NEXT_PUBLIC_BACKEND}/count`
     );
-    console.log(response.data);
+    // console.log(response.data);
     if (response.data) return response.data;
     throw new Error('Something Went Wrong');
   } catch (e) {
     // console.log(e);
-    console.log('hello');
+    // console.log('hello');
     throw new Error('Something Went Wrong');
   }
 };

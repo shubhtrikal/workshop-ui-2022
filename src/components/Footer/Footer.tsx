@@ -19,6 +19,8 @@ import PrivacyDialog from '../privacy';
 const Footer: React.FC = () => {
   const [openDialog, setOpenDialog] = React.useState(false);
   const [openPrivacy, setOpenPrivacy] = React.useState(false);
+  const [openRefund, setOpenRefund] = React.useState(false);
+
   return (
     <footer>
       <ScrollDialog
@@ -154,11 +156,14 @@ const Footer: React.FC = () => {
         </Grid>
         <Box className='footer-privacy'>
           <ul>
-            <a onClick={() => setOpenPrivacy(true)}>
-              <li>Privacy</li>
-            </a>
             <a onClick={() => setOpenDialog(true)}>
               <li>Terms & Conditions</li>
+            </a>
+            <a onClick={() => setOpenRefund(true)}>
+              <li>Refund Policy</li>
+            </a>
+            <a onClick={() => setOpenPrivacy(true)}>
+              <li>Privacy Policy</li>
             </a>
           </ul>
         </Box>
