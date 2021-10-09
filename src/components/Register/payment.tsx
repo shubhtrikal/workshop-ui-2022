@@ -271,8 +271,14 @@ export default function Payment(props: props) {
       .then((res) => {
         const wa1 = values.workshopA ? 500 : 0;
         const wa2 = values.workshopB ? 500 : 0;
-        const ewa1 = values.workshopA && res.workshopA < 50 ? 50 : 0;
-        const ewa2 = values.workshopB && res.workshopB < 50 ? 50 : 0;
+        const ewa1 =
+          values.workshopA && res.workshopA < 50 && promoCode !== 'MANIT20'
+            ? 50
+            : 0;
+        const ewa2 =
+          values.workshopB && res.workshopB < 50 && promoCode !== 'MANIT20'
+            ? 50
+            : 0;
         const d = Math.ceil(((wa1 + wa2 - ewa1 - ewa2) * discount) / 100);
         const total = wa1 + wa2 - (ewa1 + ewa2 + d);
         // console.log(bill, 'before', ewa2);
@@ -280,8 +286,14 @@ export default function Payment(props: props) {
         setBill({
           wa1: values.workshopA ? 500 : 0,
           wa2: values.workshopB ? 500 : 0,
-          ewa1: values.workshopA && res.workshopA < 50 ? 50 : 0,
-          ewa2: values.workshopB && res.workshopB < 50 ? 50 : 0,
+          ewa1:
+            values.workshopA && res.workshopA < 50 && promoCode !== 'MANIT20'
+              ? 50
+              : 0,
+          ewa2:
+            values.workshopB && res.workshopB < 50 && promoCode !== 'MANIT20'
+              ? 50
+              : 0,
           d: d,
           total: total,
         });
