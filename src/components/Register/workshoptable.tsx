@@ -102,7 +102,7 @@ export default function WorkshopTable(props: tableprops) {
               </TableRow>
             </TableHead>
             <TableBody>
-              <TableRow>
+              {/* <TableRow>
                 <TableCell align='left'>1</TableCell>
                 <TableCell align='center'>
                   <Typography component='h6'>
@@ -130,9 +130,9 @@ export default function WorkshopTable(props: tableprops) {
                     }}
                   />
                 </TableCell>
-              </TableRow>
+              </TableRow> */}
               <TableRow>
-                <TableCell align='left'>2</TableCell>
+                <TableCell align='left'>1</TableCell>
                 <TableCell align='center'>
                   <Typography component='h6'>Machine Learning</Typography>
                   <Typography component='p' variant='inherit'>
