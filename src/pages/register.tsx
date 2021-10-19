@@ -26,10 +26,24 @@ const Register: React.FC<RegisterProps> = ({ userDetails, updateDetails }) => {
       <Container maxWidth='lg'>
         <Box className='title'>
           <h2>
-            <span>Registration for Workshops</span>
+            <span>
+              Registrations for Flair Haven'21 are now closed! See you again
+              next year.
+            </span>
+          </h2>
+          <h2>
+            <span>
+              <a
+                href='https://versionbeta.istemanit.in/'
+                style={{ color: '#2E5984' }}
+              >
+                Click Here
+              </a>{' '}
+              to participate in Version Beta 4.0 Hackathon.
+            </span>
           </h2>
         </Box>
-        <Steppers activeStep={activeStep} />
+        {/* <Steppers activeStep={activeStep} />
         {activeStep == 0 ? (
           <Registerform
             userDetails={userDetails}
@@ -50,7 +64,7 @@ const Register: React.FC<RegisterProps> = ({ userDetails, updateDetails }) => {
             handleNext={next}
             handleBack={prev}
           />
-        )}
+        )} */}
       </Container>
     </>
   );
