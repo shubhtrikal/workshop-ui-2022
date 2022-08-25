@@ -115,45 +115,68 @@ export default function Payment(props: props) {
   const handlePromo = async (promoCode: string) => {
     promoCode = promoCode.trim();
     const res: PromoRes = await checkPromo(promoCode);
-    if (
-      res.valid &&
-      promoCode === `COMBO10` &&
-      values.workshopA &&
-      values.workshopB
-    ) {
-      setMessage('Promo Code Applied');
-      setDiscount(res.discount);
-      return;
-    }
+    console.log(res.valid);
 
-    if (res.valid && promoCode !== `COMBO10`) {
-      if (promoCode === 'MANIT20')
-        alert(
-          'In case you are using a code generated for MANIT students, your status as a MANITian would be verified. In case of discrepancy, the refund would not be generated and would lead to cancellation of the registration for Flair Haven.'
-        );
+    if(res.valid)
+    {
       setMessage('Promo Code Applied');
       setDiscount(res.discount);
-      return;
+    }
+    else {
+        setDiscount(0);
+        setMessage('No Such Promo Code Found');
     }
 
     const d = Math.ceil(
-      ((bill.wa1 + bill.wa2 - bill.ewa1 - bill.ewa2) * discount) / 100
+        ((bill.wa1 + bill.wa2 - bill.ewa1 - bill.ewa2) * discount) / 100
     );
     const total = bill.wa1 + bill.wa2 - (bill.ewa1 + bill.ewa2 + d);
-
+  
     setBill({
       ...bill,
       d: d,
       total: total,
     });
-    if (promoCode === `COMBO10`)
-      setMessage(
-        'This Promo Code is applicable only when you select both workshop'
-      );
-    else {
-      setDiscount(0);
-      setMessage('No Such Promo Code Found');
-    }
+    // if (
+    //   res.valid &&
+    //   promoCode === `COMBO10` &&
+    //   values.workshopA &&
+    //   values.workshopB
+    // ) {
+    //   setMessage('Promo Code Applied');
+    //   setDiscount(res.discount);
+    //   return;
+    // }
+
+    // if (res.valid && promoCode !== `COMBO10`) {
+    //   if (promoCode === 'MANIT20')
+    //     alert(
+    //       'In case you are using a code generated for MANIT students, your status as a MANITian would be verified. In case of discrepancy, the refund would not be generated and would lead to cancellation of the registration for Flair Haven.'
+    //     );
+    //   setMessage('Promo Code Applied');
+    //   setDiscount(res.discount);
+    //   return;
+    // }
+
+    // const d = Math.ceil(
+    //   ((bill.wa1 + bill.wa2 - bill.ewa1 - bill.ewa2) * discount) / 100
+    // );
+    // const total = bill.wa1 + bill.wa2 - (bill.ewa1 + bill.ewa2 + d);
+
+    // setBill({
+    //   ...bill,
+    //   d: d,
+    //   total: total,
+    // });
+    // if (promoCode === `COMBO10`)
+    //   setMessage(
+
+    //     'This Promo Code is applicable only when you select both workshop'
+    //   );
+    // else {
+    //   setDiscount(0);
+    //   setMessage('No Such Promo Code Found');
+    // }
   };
   const displayRazorpay = async (values: Details) => {
     const { name, email, phone, college } = values;

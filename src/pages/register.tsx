@@ -24,7 +24,7 @@ const Register: React.FC<RegisterProps> = ({ userDetails, updateDetails }) => {
   return (
     <>
       <Container maxWidth='lg'>
-        <Box className='title'>
+        {/* <Box className='title'>
           <h2>
             <span>
               Registrations for Flair Haven'21 are now closed! See you again
@@ -42,8 +42,8 @@ const Register: React.FC<RegisterProps> = ({ userDetails, updateDetails }) => {
               to participate in Version Beta 4.0 Hackathon.
             </span>
           </h2>
-        </Box>
-        {/* <Steppers activeStep={activeStep} />
+        </Box> */}
+        <Steppers activeStep={activeStep} />
         {activeStep == 0 ? (
           <Registerform
             userDetails={userDetails}
@@ -64,7 +64,7 @@ const Register: React.FC<RegisterProps> = ({ userDetails, updateDetails }) => {
             handleNext={next}
             handleBack={prev}
           />
-        )} */}
+        )}
       </Container>
     </>
   );
