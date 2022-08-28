@@ -3,6 +3,7 @@ import { Grid, Box, TextField, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 import { Details } from '../../pages/_app';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 const useStyles = makeStyles({
   box: {
@@ -49,9 +50,38 @@ const RegisterForm = (props: formprops) => {
   const router = useRouter();
   const values = props.userDetails;
 
+
+   
+  const handleSubmit = () =>{
+
+    axios.post(`${process.env.NEXT_PUBLIC_BACKEND}/save`, {
+    name:values.name,
+    phone:values.phone,
+    email:values.email,
+    college:values.college,
+    earlyBirdWorkshopA:false,
+    earlyBirdWorkshopB:false,
+    amount:"0",
+    paymentId:"$",
+    workshopA:false,
+    workshopB:false,
+    discountValue:"",
+    })
+   .then( (response) => {
+       console.log(response)
+   })
+   .catch( (error) => {
+       console.log(error)
+   }) 
+
+    props.handleNext()
+ }
+
+
+
   return (
     <Grid container alignItems='center' justifyContent='center'>
-      <form onSubmit={props.handleNext}>
+      <form onSubmit={handleSubmit}>
         <Box className={classes.box}>
           <TextField
             variant='outlined'

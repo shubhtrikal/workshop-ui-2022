@@ -37,7 +37,7 @@ export const saveUser = async (
   promo: string
 ) => {
   try {
-    const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND}/save`, {
+    const res = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND}/update`, {
       user: {
         name: values.name,
         phone: values.phone,
