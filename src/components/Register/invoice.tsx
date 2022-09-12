@@ -227,16 +227,14 @@ const Invoice: React.FC<InvoiceProps> = ({ open, onClose, details }) => {
                 {details.workshopA && (
                   <TableRow key={1}>
                     <TableCell>
-                      <ListItemText
-                        primary={'Android App Development'}
+                    <ListItemText
+                        primary={'Data Structures and Algorithms'}
                         primaryTypographyProps={{ variant: 'body2' }}
-                        secondary={
-                          'Engrossing Workshop on Android App Development using Android Studio'
-                        }
+                        secondary={'Engrossing Workshop on Data Structures and Algorithms'}
                       />
                     </TableCell>
-                    <TableCell>{'16-17 Oct 2021'}</TableCell>
-                    <TableCell>{'Online Platform'}</TableCell>
+                    <TableCell>{'24-25 Sep 2021'}</TableCell>
+                    <TableCell>{'MANIT, Bhopal'}</TableCell>
                     <TableCell>{'₹ 500'}</TableCell>
                   </TableRow>
                 )}
@@ -249,8 +247,8 @@ const Invoice: React.FC<InvoiceProps> = ({ open, onClose, details }) => {
                         secondary={'Immersive Workshop on Machine Learning'}
                       />
                     </TableCell>
-                    <TableCell>{'19-20 Oct 2021'}</TableCell>
-                    <TableCell>{'Online Platform'}</TableCell>
+                    <TableCell>{'1-2 Oct 2021'}</TableCell>
+                    <TableCell>{'MANIT, Bhopal'}</TableCell>
                     <TableCell>{'₹ 500'}</TableCell>
                   </TableRow>
                 )}

@@ -38,29 +38,29 @@ const FaqComponent: React.FC = () => {
     },
     {
       question: `What are the domains for the workshops?`,
-      answer: `  Android App Development using Android Studio and Machine Learning. `,
+      answer: `  Data Structures and Algorithms and Machine Learning. `,
     },
     {
       question: `Duration of the workshop?`,
-      answer: `The time duration per workshop is 6 to 8 hours over two days.`,
+      answer: `The time duration per workshop is 5 to 8 hours over two days.`,
     },
     {
       question: `Dates for the workshop?`,
-      answer: `Workshop on Android App Development using Android Studio is on the 16th and 17th of October’ 2021. The Machine Learning workshop is on the 19th and 20th of October’ 2021.`,
+      answer: `Workshop on Machine Learning is on the 24th and 25th of September' 2022. The Machine Learning workshop is on the 1st and 2nd of October’ 2022.`,
     },
     {
       question: `Are there any prerequisites for the workshop?`,
       answer: `The prerequisites, if any, will be provided before the workshop.`,
     },
     {
-      question: `What will be the platform for the workshops?`,
-      answer: `The workshop will take place on Zoom.`,
+      question: `Where will the workshop be held?`,
+      answer: `The workshop will be held at Maulana Azad National Institute Of Technology, Bhopal.`,
     },
     {
       question: `What are the exciting points about the workshop?`,
       answer: `The workshops will conclude with a suitable CV-ready project for students.          
               Solving real-time doubts and queries of the participants.
-              10% discount on all the two-month courses and internship programs from Tech Cryptors Pvt. Ltd. for all the participants of Version Beta 4.0.`,
+              A Coding Assessment Test will be conducted after the workshop worth exciting prizes/rewards`,
     },
     {
       question: `Who can participate?`,

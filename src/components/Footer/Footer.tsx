@@ -142,8 +142,8 @@ const Footer: React.FC = () => {
                   <i aria-hidden='true'>
                     <FontAwesomeIcon icon={faPhone} />
                   </i>
-                  Tushar Khajuria <br />
-                  +91 9469470474
+                  Animesh Nayak <br />
+                  +91 8504036415
                 </a>
               </p>
               <br />
@@ -152,8 +152,8 @@ const Footer: React.FC = () => {
                   <i aria-hidden='true'>
                     <FontAwesomeIcon icon={faPhone} />
                   </i>
-                  Ananya Rawat <br />
-                  +91 9993654745
+                  Navyasree Konagalla <br />
+                  +91 9490165056
                 </a>
               </p>
             </div>

@@ -105,15 +105,12 @@ export default function WorkshopTable(props: tableprops) {
               <TableRow>
                 <TableCell align='left'>1</TableCell>
                 <TableCell align='center'>
-                  <Typography component='h6'>
-                    Android App Development
-                  </Typography>
+                  <Typography component='h6'>Machine Learning</Typography>
                   <Typography component='p' variant='inherit'>
-                    Engrossing Workshop on Android App Development using Android
-                    Studio
+                    Immersive Workshop on Machine Learning
                   </Typography>
                 </TableCell>
-                <TableCell align='center'>16-17 October 2021</TableCell>
+                <TableCell align='center'>24-25 September 2022</TableCell>
                 <TableCell align='center'>{`${
                   250 - seats.workshopA
                 }/250`}</TableCell>
@@ -134,12 +131,14 @@ export default function WorkshopTable(props: tableprops) {
               <TableRow>
                 <TableCell align='left'>1</TableCell>
                 <TableCell align='center'>
-                  <Typography component='h6'>Machine Learning</Typography>
+                  <Typography component='h6'>
+                  Data Structures and Algorithms
+                  </Typography>
                   <Typography component='p' variant='inherit'>
-                    Immersive Workshop on Machine Learning
+                    Engrossing Workshop on Data Structures and Algorithms
                   </Typography>
                 </TableCell>
-                <TableCell align='center'> 19-20 October 2021</TableCell>
+                <TableCell align='center'> 1-2 October 2022</TableCell>
                 <TableCell align='center'>
                   {`${250 - seats.workshopB}/250`}
                 </TableCell>

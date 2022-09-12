@@ -38,9 +38,7 @@ const Prizes = () => {
               <img src='images/coupon.png' alt='img' width='120px' />
               <h4>Discount Coupons</h4>
               <p>
-                10% discount coupons on all the two-month certified courses of
-                Tech Cryptors Courses, Ekeeda, Foxmula & many more for all the
-                participants of Flair Haven.
+                15% discount coupons on Coding Ninja's Courses.
               </p>
             </div>
           </Grid>
