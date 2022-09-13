@@ -12,10 +12,10 @@ const description1 =
   "Data is everywhere. Hence, its organization too, is essential. DSA is not only the basic building block for developing algorithmic and logical thinking, but it also enables us to solve real-world problems effectively. Forming a crucial part of any technical interview and its application also extends to booming fields like Artificial Intelligence and Machine Learning, which makes it quite pivotal to learn.";
 const point1 = [
   // ' Pivotal concepts of Frontend and Backend.',
-  ' Crucial topics of XML & Java to code a login form.',
-  ' Build your Camera Application.',
-  ' Learn to build logic and create your Calculator App.',
-  ' Practical learning sessions to give you hands-on experience.',
+  // ' Crucial topics of XML & Java to code a login form.',
+  // ' Build your Camera Application.',
+  // ' Learn to build logic and create your Calculator App.',
+  // ' Practical learning sessions to give you hands-on experience.',
 ];
 const title2 = 'Machine Learning';
 const image2 = 'images/ml.jpg';
