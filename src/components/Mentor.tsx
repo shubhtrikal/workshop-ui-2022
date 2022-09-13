@@ -20,12 +20,12 @@ const Mentor = () => {
               />
             </Box>
             <Box className='mentor-heading'>
-              <h2>Yadnesh Mohan Zagade</h2>
-              <h4>C.E.O. & Founder – Tech Cryptors</h4>
+              <h2>Shantanu Shubham</h2>
+              {/* <h4>C.E.O. & Founder – Tech Cryptors</h4> */}
             </Box>
             <Box className='mentor-details'>
               <p>
-                We are elated to introduce Mr. Yadnesh Mohan Zagade, C.E.O. and
+                We are elated to introduce Mr. Shantanu Shubham, C.E.O. and
                 Founder of Tech Cryptors as the mentor for Flair Haven this
                 year. He has been a research and development enthusiast since
                 2014 and has marvellously worked on different technologies and
@@ -34,7 +34,7 @@ const Mentor = () => {
                 products are awe-inspiring. Conducting a vast number of
                 workshops, seminars, internship courses etc. and training
                 thousands of students from highly revered engineering colleges
-                like IITs & NITs, Mr. Yadnesh has been greatly influential all
+                like IITs & NITs, Mr. Shantanu Shubham has been greatly influential all
                 across India and deservingly is a member of Departmental
                 Advisory Boards (DAB) of many renowned colleges. His mastery and
                 passion for coding are, for sure, motivation and a source of
