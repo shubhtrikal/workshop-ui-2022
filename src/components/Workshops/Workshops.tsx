@@ -23,7 +23,7 @@ const Workshops: React.FC<workshopProps> = ({
   return (
     <div className='workshop-div'>
       <div className='workshop-img'>
-        <img src={image} alt={title} />
+        <img src={image} alt={title} min-height = '350px' width='100%'/>
       </div>
       <Grid
         container
@@ -73,9 +73,9 @@ const Workshops: React.FC<workshopProps> = ({
       >
         <Grid item xs={12} md={6}>
           <ul className='list-unstyled'>
-            <li>
+            {/* <li>
               <span>Digital Event:</span> Watch it online!
-            </li>
+            </li> */}
             <li>
               <span>Prerequisite: </span> Remember that the sole prerequisite
               for attending the Workshop is "enthu"! Apart from that, the mentor
@@ -90,7 +90,7 @@ const Workshops: React.FC<workshopProps> = ({
               and goodies for good performers in workshop.
             </li>
             <li>
-              <span>Mentor:</span> Mr. Yadnesh Mohan Zagade
+              <span>Mentor:</span> Mr. Shantanu Shubham
             </li>
             <li>
               <span>Price:</span> ₹ 500

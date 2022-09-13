@@ -7,9 +7,9 @@ const image1 = 'images/DSA.png';
 const tag1 = 'Workshop';
 const date1 = 'October 1-2, 2022';
 const about1 =
-  "Over the past few years, the Tech world has revolutionized. Among various spheres, Android Application Development is evolving expeditiously and has a popularity that's increasing at a rate of knots. In this competitive world, hands-on learning opportunities are a dire need. And to quench the thirst for knowledge, here comes the Android App Development using Android Studio workshop, providing 100% hands-on & practical sessions under the guidance of a mentor having years of expertise.";
+  "Programming is like any other sport. You might know the rules, but you have to play to learn. ISTE SC MANIT is here with a workshop on Data Structures and Algorithms to take you a step toward becoming a better programmer. Beginning with arrays to implementation of linked lists and complex graph algorithms. This course gives an insight into the world of stacks, queues and much more to expand your critical thinking and problem-solving abilities. So, all curious and prying minds out there, register in our engrossing workshop and blaze into the all-important domain of Data Structures and Algorithms.";
 const description1 =
-  "The workshop will cover various domains such as understanding practical concepts behind Frontend & Backend and making a practical code for login form by performing coding in XML & JAVA. You will also be able to create your Camera Application and Calculator app along with an understanding of the logic behind the Calculator App. Don't miss this one-of-its-kind workshop which comes with an attractive CV-ready project.";
+  "Data is everywhere. Hence, its organization too, is essential. DSA is not only the basic building block for developing algorithmic and logical thinking, but it also enables us to solve real-world problems effectively. Forming a crucial part of any technical interview and its application also extends to booming fields like Artificial Intelligence and Machine Learning, which makes it quite pivotal to learn.";
 const point1 = [
   // ' Pivotal concepts of Frontend and Backend.',
   ' Crucial topics of XML & Java to code a login form.',

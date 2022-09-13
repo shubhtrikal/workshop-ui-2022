@@ -9,13 +9,13 @@ const LandingPage: React.FC = () => {
         <div className='landing-content'>
           <div className='hero-sponsors'>
             <a href='https://istemanit.in/' target='_blank'>
-              <img src='images/istewhite.png' alt='iste' width='100px' />
+              <img src='images/iste-white.svg' alt='iste' width='150px' />
             </a>
             <h1 style={{ margin: '0 20px', color: 'white', fontSize: '32px' }}>
               &
             </h1>
-            <a href='https://techcryptors.com/' target='_blank'>
-              <img src='images/circle.png' alt='title-sponsor' width='100px' />
+            <a href='https://www.codingninjas.com/' target='_blank'>
+              <img src='images/codingninja.png' alt='title-sponsor' width='150px' />
             </a>
           </div>
           <h4>
@@ -24,8 +24,8 @@ const LandingPage: React.FC = () => {
           <h2>
             FLAIR <span>HAVEN</span>
           </h2>
-          <h6>Workshop 1: September 24 - September 25, 2022</h6>
-          <h6>Workshop 2: October 1 - October 2, 2022</h6>
+          <h6 style={{ margin: '0 0 0 0'}}>Workshop 1: Sep 24 - Sep 25, 2022</h6>
+          <h6>Workshop 2: Oct 1 - Oct 2, 2022</h6>
           <a className='btn btn_hover' href='/register'>
             Register Now
           </a>
