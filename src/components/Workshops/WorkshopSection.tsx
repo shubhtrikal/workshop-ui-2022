@@ -11,11 +11,11 @@ const about1 =
 const description1 =
   "Data is everywhere. Hence, its organization too, is essential. DSA is not only the basic building block for developing algorithmic and logical thinking, but it also enables us to solve real-world problems effectively. Forming a crucial part of any technical interview and its application also extends to booming fields like Artificial Intelligence and Machine Learning, which makes it quite pivotal to learn.";
 const point1 = [
-  // ' Pivotal concepts of Frontend and Backend.',
-  // ' Crucial topics of XML & Java to code a login form.',
-  // ' Build your Camera Application.',
-  // ' Learn to build logic and create your Calculator App.',
-  // ' Practical learning sessions to give you hands-on experience.',
+  ' Introduction.',
+  ' Understanding the importance.',
+  ' Understanding different Data Structures.',
+  ' Solving problems.',
+  ' Discussing and implementing Algorithms.',
 ];
 const title2 = 'Machine Learning';
 const image2 = 'images/ml.jpg';
@@ -26,11 +26,11 @@ const about2 =
 const description2 =
   'Bill Gates believes that "A breakthrough in machine learning would be worth ten Microsoft”. Thus, there is no compelling reason to additionally portray the significance of machine learning in this Computer Aided world. Machine Learning has given us self-driving cars, intuitive speech recognition, and an incomprehensibly worked-on grasp of the human genome in the preceding decade. Machine learning is so normal nowadays that you likely use it countless times each day without acknowledging it. ';
 const point2 = [
-  'The logic behind Image Extraction',
-  'Image to Text Converting Applications',
-  // 'Making Chat Bots from scratch and comprehending its Real-life utility',
-  'Making Chat Bots from scratch',
-  'Thoroughly crafted Hands-on and practical sessions',
+  'Introduction.',
+  'Different types of Machine Learning.',
+  'Understanding Supervised Learning.',
+  'Understanding Unsupervised Learning.',
+  'Career Prospects.',
   // 'Basics of Python: Loops, Functions, Attributes',
 ];
 const workshopSection = () => {

@@ -14,7 +14,7 @@ const LandingPage: React.FC = () => {
             <h1 style={{ margin: '0 20px', color: 'white', fontSize: '32px' }}>
               &
             </h1>
-            <a href='https://www.codingninjas.com/' target='_blank'>
+            <a href='https://bit.ly/3Updcil' target='_blank'>
               <img src='images/codingninja.png' alt='title-sponsor' width='150px' />
             </a>
           </div>
