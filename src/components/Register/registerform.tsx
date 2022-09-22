@@ -59,13 +59,6 @@ const RegisterForm = (props: formprops) => {
     phone:values.phone,
     email:values.email,
     college:values.college,
-    earlyBirdWorkshopA:false,
-    earlyBirdWorkshopB:false,
-    amount:"0",
-    paymentId:"$",
-    workshopA:false,
-    workshopB:false,
-    discountValue:"",
     })
    .then( (response) => {
        console.log(response)

@@ -111,6 +111,7 @@ export default function Payment(props: props) {
   interface PromoRes {
     valid: boolean;
     discount: number;
+    single: boolean;
   }
   const handlePromo = async (promoCode: string) => {
     promoCode = promoCode.trim();
@@ -119,8 +120,21 @@ export default function Payment(props: props) {
 
     if(res.valid)
     {
-      setMessage('Promo Code Applied');
-      setDiscount(res.discount);
+      if(!res.single)
+        if(values.workshopA && values.workshopB)
+        {
+          setMessage('Promo Code Applied');
+          setDiscount(res.discount);
+        }
+        else{
+          setMessage('Promo Code is not applicable for single workshop');
+          setDiscount(0);
+        }
+      else
+      {
+        setMessage('Promo Code Applied');
+        setDiscount(res.discount);
+      }
     }
     else {
         setDiscount(0);
