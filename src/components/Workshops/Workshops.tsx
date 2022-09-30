@@ -52,9 +52,9 @@ const Workshops: React.FC<workshopProps> = ({
                 </a>
               </div>
             </Hidden>
-            <a href='/register' className='btn btn-two btn-hover'>
+            {/* <a href='/register' className='btn btn-two btn-hover'>
               Book Seat
-            </a>
+            </a> */}
           </div>
         </Grid>
         <Grid item xs={12} md={6}>
