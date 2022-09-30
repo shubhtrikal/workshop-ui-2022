@@ -24,11 +24,12 @@ const LandingPage: React.FC = () => {
           <h2>
             FLAIR <span>HAVEN</span>
           </h2>
-          <h6 style={{ margin: '0 0 0 0'}}>Workshop 1: Sep 24 - Sep 25, 2022</h6>
+          {/* <h6 style={{ margin: '0 0 0 0'}}>Workshop 1: Sep 24 - Sep 25, 2022</h6>
           <h6>Workshop 2: Oct 1 - Oct 2, 2022</h6>
           <a className='btn btn_hover' href='/register'>
             Register Now
-          </a>
+          </a> */}
+          <h6 style={{ color: 'white'}}>Registrations are now closed</h6>
         </div>
       </div>
     </section>
