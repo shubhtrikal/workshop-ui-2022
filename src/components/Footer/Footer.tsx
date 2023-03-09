@@ -16,11 +16,13 @@ import { Grid, Box, Container } from '@material-ui/core';
 import ScrollDialog from '../terms';
 import PrivacyDialog from '../privacy';
 import RefundDialog from '../refund';
+import PriceDialog from '../price'
 
 const Footer: React.FC = () => {
   const [openDialog, setOpenDialog] = React.useState(false);
   const [openPrivacy, setOpenPrivacy] = React.useState(false);
   const [openRefund, setOpenRefund] = React.useState(false);
+  const [openPrice, setOpenPrice] = React.useState(false);
 
   return (
     <footer>
@@ -36,6 +38,14 @@ const Footer: React.FC = () => {
         openDialog={openRefund}
         onClose={() => setOpenRefund(false)}
       />
+      <PriceDialog
+        openPrice = {openPrice}
+        onClose = {() => setOpenPrice(false)}
+      />
+      {/* <RefundDialog
+        openDialog={openRefund}
+        onClose={() => setOpenRefund(false)}
+      /> */}
       <Container maxWidth='lg'>
         <Grid
           container
@@ -169,6 +179,9 @@ const Footer: React.FC = () => {
             </a>
             <a onClick={() => setOpenPrivacy(true)}>
               <li>Privacy Policy</li>
+            </a>
+            <a onClick={() => setOpenPrice(true)}>
+              <li>Price Details</li>
             </a>
           </ul>
         </Box>
