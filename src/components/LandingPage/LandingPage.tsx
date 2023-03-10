@@ -8,13 +8,13 @@ const LandingPage: React.FC = () => {
       <div>
         <div className='landing-content'>
           <div className='hero-sponsors'>
-            <a href='https://istemanit.in/' target='_blank'>
+            <a>
               <img src='images/iste-white.svg' alt='iste' width='150px' />
             </a>
             <h1 style={{ margin: '0 20px', color: 'white', fontSize: '32px' }}>
               &
             </h1>
-            <a href='https://bit.ly/3Updcil' target='_blank'>
+            <a>
               <img src='images/codingninja.png' alt='title-sponsor' width='150px' />
             </a>
           </div>
